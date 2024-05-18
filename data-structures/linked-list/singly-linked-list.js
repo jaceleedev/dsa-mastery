@@ -163,4 +163,17 @@ class SinglyLinkedList {
   isEmpty() {
     return this.size === 0;
   }
+
+  // 리스트의 모든 요소 출력
+  print() {
+    let current = this.head;
+    let listString = '';
+
+    while (current !== null) {
+      listString += `${current.data} -> `;
+      current = current.next;
+    }
+
+    console.log(listString + 'null');
+  }
 }

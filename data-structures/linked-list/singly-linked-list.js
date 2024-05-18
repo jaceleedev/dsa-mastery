@@ -226,4 +226,20 @@ class SinglyLinkedList {
 
     return lastIndex;
   }
+
+  // 리스트를 반대로 뒤집기
+  reverse() {
+    let previous = null;
+    let current = this.head;
+    let next = null;
+
+    while (current !== null) {
+      next = current.next;
+      current.next = previous;
+      previous = current;
+      current = next;
+    }
+
+    this.head = previous;
+  }
 }

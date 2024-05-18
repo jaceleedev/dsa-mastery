@@ -158,4 +158,9 @@ class SinglyLinkedList {
   getSize() {
     return this.size;
   }
+
+  // 리스트가 비어있는지 확인
+  isEmpty() {
+    return this.size === 0;
+  }
 }

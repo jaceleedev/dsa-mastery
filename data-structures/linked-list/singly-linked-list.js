@@ -255,4 +255,17 @@ class SinglyLinkedList {
 
     return array;
   }
+
+  // 리스트를 복사
+  clone() {
+    const newList = new SinglyLinkedList();
+    let current = this.head;
+
+    while (current !== null) {
+      newList.append(current.data);
+      current = current.next;
+    }
+
+    return newList;
+  }
 }

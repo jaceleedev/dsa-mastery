@@ -29,4 +29,14 @@ class SinglyLinkedList {
 
     ++this.size;
   }
+
+  // 리스트의 시작 부분에 노드 추가
+  prepend(data) {
+    const newNode = new Node(data);
+
+    newNode.next = this.head;
+    this.head = newNode;
+
+    ++this.size;
+  }
 }

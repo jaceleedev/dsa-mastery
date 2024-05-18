@@ -70,4 +70,35 @@ class SinglyLinkedList {
 
     return removedData;
   }
+
+  // 특정 데이터를 찾아 제거
+  remove(data) {
+    if (this.head === null) {
+      return null;
+    }
+
+    if (this.head.data === data) {
+      this.head = this.head.next;
+      --this.size;
+
+      return data;
+    }
+
+    let current = this.head;
+    let previous = null;
+
+    while (current !== null) {
+      if (current.data === data) {
+        previous.next = current.next;
+        --this.size;
+
+        return data;
+      }
+
+      previous = current;
+      current = current.next;
+    }
+
+    return null;
+  }
 }

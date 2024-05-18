@@ -242,4 +242,17 @@ class SinglyLinkedList {
 
     this.head = previous;
   }
+
+  // 리스트를 배열로 변환
+  toArray() {
+    const array = [];
+    let current = this.head;
+
+    while (current !== null) {
+      array.push(current.data);
+      current = current.next;
+    }
+
+    return array;
+  }
 }

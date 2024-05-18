@@ -39,4 +39,35 @@ class SinglyLinkedList {
 
     ++this.size;
   }
+
+  // 특정 위치의 노드 제거 및 데이터 반환
+  removeAt(index) {
+    if (index < 0 || index >= this.size) {
+      return null;
+    }
+
+    let removedData = null;
+
+    if (index === 0) {
+      removedData = this.head.data;
+      this.head = this.head.next;
+    } else {
+      let current = this.head;
+      let previous = null;
+      let count = 0;
+
+      while (count < index) {
+        previous = current;
+        current = current.next;
+        ++count;
+      }
+
+      removedData = current.data;
+      previous.next = current.next;
+    }
+
+    --this.size;
+
+    return removedData;
+  }
 }

@@ -208,4 +208,22 @@ class SinglyLinkedList {
 
     return -1;
   }
+
+  // 리스트에서 특정 데이터의 마지막 인덱스 반환
+  lastIndexOf(data) {
+    let current = this.head;
+    let index = 0;
+    let lastIndex = -1;
+
+    while (current !== null) {
+      if (current.data === data) {
+        lastIndex = index;
+      }
+
+      current = current.next;
+      ++index;
+    }
+
+    return lastIndex;
+  }
 }

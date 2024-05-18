@@ -153,4 +153,9 @@ class SinglyLinkedList {
     this.head = null;
     this.size = 0;
   }
+
+  // 리스트의 크기 반환
+  getSize() {
+    return this.size;
+  }
 }

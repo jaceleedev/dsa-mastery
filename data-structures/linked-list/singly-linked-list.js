@@ -147,4 +147,10 @@ class SinglyLinkedList {
 
     ++this.size;
   }
+
+  // 리스트 비우기
+  clear() {
+    this.head = null;
+    this.size = 0;
+  }
 }

@@ -118,4 +118,33 @@ class SinglyLinkedList {
 
     return current.data;
   }
+
+  // 특정 위치에 노드 삽입
+  insertAt(index, data) {
+    if (index < 0 || index > this.size) {
+      return;
+    }
+
+    const newNode = new Node(data);
+
+    if (index === 0) {
+      newNode.next = this.head;
+      this.head = newNode;
+    } else {
+      let current = this.head;
+      let previous = null;
+      let count = 0;
+
+      while (count < index) {
+        previous = current;
+        current = current.next;
+        ++count;
+      }
+
+      newNode.next = current;
+      previous.next = newNode;
+    }
+
+    ++this.size;
+  }
 }

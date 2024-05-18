@@ -101,4 +101,21 @@ class SinglyLinkedList {
 
     return null;
   }
+
+  // 특정 위치의 노드 데이터 반환
+  getAt(index) {
+    if (index < 0 || index >= this.size) {
+      return null;
+    }
+
+    let current = this.head;
+    let count = 0;
+
+    while (count < index) {
+      current = current.next;
+      ++count;
+    }
+
+    return current.data;
+  }
 }

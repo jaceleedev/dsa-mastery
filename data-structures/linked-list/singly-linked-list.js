@@ -191,4 +191,21 @@ class SinglyLinkedList {
 
     return false;
   }
+
+  // 리스트에서 특정 데이터의 인덱스 반환
+  indexOf(data) {
+    let current = this.head;
+    let index = 0;
+
+    while (current !== null) {
+      if (current.data === data) {
+        return index;
+      }
+
+      current = current.next;
+      ++index;
+    }
+
+    return -1;
+  }
 }

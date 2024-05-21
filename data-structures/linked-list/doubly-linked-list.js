@@ -52,4 +52,51 @@ class DoublyLinkedList {
 
     ++this.size;
   }
+
+  /**
+   * 특정 위치의 노드를 제거하고 데이터를 반환합니다.
+   * 시간 복잡도: O(n)
+   * @param {number} index - 제거할 노드의 위치
+   * @returns {any} 제거된 노드의 데이터
+   */
+  removeAt(index) {
+    if (index < 0 || index >= this.size) {
+      return;
+    }
+
+    let removedData;
+
+    if (index === 0) {
+      removedData = this.head.data;
+      this.head = this.head.next;
+
+      if (this.head === null) {
+        this.tail = null;
+      } else {
+        this.head.prev = null;
+      }
+    } else if (index === this.size - 1) {
+      removedData = this.tail.data;
+
+      this.tail = this.tail.prev;
+      this.tail.next = null;
+    } else {
+      let current = this.head;
+      let count = 0;
+
+      while (count < index) {
+        current = current.next;
+        ++count;
+      }
+
+      removedData = current.data;
+
+      current.prev.next = current.next;
+      current.next.prev = current.prev;
+    }
+
+    --this.size;
+
+    return removedData;
+  }
 }

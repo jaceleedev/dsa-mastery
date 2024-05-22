@@ -99,4 +99,42 @@ class DoublyLinkedList {
 
     return removedData;
   }
+
+  /**
+   * 특정 데이터를 찾아 제거합니다.
+   * 시간 복잡도: O(n)
+   * @param {any} data - 제거할 데이터
+   * @returns {any} 제거된 데이터
+   */
+  remove(data) {
+    let current = this.head;
+
+    while (current !== null) {
+      if (current.data === data) {
+        if (current === this.head) {
+          this.head = this.head.next;
+
+          if (this.head === null) {
+            this.tail = null;
+          } else {
+            this.head.prev = null;
+          }
+        } else if (current === this.tail) {
+          this.tail = this.tail.prev;
+          this.tail.next = null;
+        } else {
+          current.prev.next = current.next;
+          current.next.prev = current.prev;
+        }
+
+        --this.size;
+
+        return data;
+      }
+
+      current = current.next;
+    }
+
+    return null;
+  }
 }

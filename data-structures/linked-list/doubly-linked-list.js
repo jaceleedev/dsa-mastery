@@ -137,4 +137,26 @@ class DoublyLinkedList {
 
     return null;
   }
+
+  /**
+   * 특정 위치의 노드 데이터를 반환합니다.
+   * 시간 복잡도: O(n)
+   * @param {number} index - 데이터를 반환할 노드의 위치
+   * @returns {any} 노드의 데이터
+   */
+  getAt(index) {
+    if (index < 0 || index >= this.size) {
+      return null;
+    }
+
+    let current = this.head;
+    let count = 0;
+
+    while (count < index) {
+      current = current.next;
+      ++count;
+    }
+
+    return current.data;
+  }
 }

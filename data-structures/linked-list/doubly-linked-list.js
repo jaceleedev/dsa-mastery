@@ -213,4 +213,13 @@ class DoublyLinkedList {
     this.tail = null;
     this.size = 0;
   }
+
+  /**
+   * 리스트의 크기를 반환합니다.
+   * 시간 복잡도: O(1)
+   * @returns {number} 리스트의 크기
+   */
+  getSize() {
+    return this.size;
+  }
 }

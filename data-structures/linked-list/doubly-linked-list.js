@@ -203,4 +203,14 @@ class DoublyLinkedList {
 
     ++this.size;
   }
+
+  /**
+   * 리스트를 비웁니다.
+   * 시간 복잡도: O(1)
+   */
+  clear() {
+    this.head = null;
+    this.tail = null;
+    this.size = 0;
+  }
 }

@@ -331,4 +331,21 @@ class DoublyLinkedList {
     this.head = this.tail;
     this.tail = temp;
   }
+
+  /**
+   * 리스트를 배열로 변환합니다.
+   * 시간 복잡도: O(n)
+   * @returns {any[]} 리스트의 요소를 포함하는 배열
+   */
+  toArray() {
+    const array = [];
+    let current = this.head;
+
+    while (current !== null) {
+      array.push(current.data);
+      current = current.next;
+    }
+
+    return array;
+  }
 }

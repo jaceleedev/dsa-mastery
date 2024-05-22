@@ -159,4 +159,48 @@ class DoublyLinkedList {
 
     return current.data;
   }
+
+  /**
+   * 특정 위치에 노드를 삽입합니다.
+   * 시간 복잡도: O(n)
+   * @param {number} index - 노드를 삽입할 위치
+   * @param {any} data - 삽입할 데이터
+   */
+  insertAt(index, data) {
+    if (index < 0 || index >= this.size) {
+      return;
+    }
+
+    const newNode = new Node(data);
+
+    if (index === 0) {
+      if (this.head === null) {
+        this.head = newNode;
+        this.tail = newNode;
+      } else {
+        newNode.next = this.head;
+        this.head.prev = newNode;
+        this.head = newNode;
+      }
+    } else if (index === this.size) {
+      this.tail.next = newNode;
+      newNode.prev = this.tail;
+      this.tail = newNode;
+    } else {
+      let current = this.head;
+      let count = 0;
+
+      while (count < index) {
+        current = current.next;
+        ++count;
+      }
+
+      newNode.next = current;
+      newNode.prev = current.prev;
+      current.prev.next = newNode;
+      current.prev = newNode;
+    }
+
+    ++this.size;
+  }
 }

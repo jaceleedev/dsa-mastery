@@ -231,4 +231,20 @@ class DoublyLinkedList {
   isEmpty() {
     return this.size === 0;
   }
+
+  /**
+   * 리스트의 모든 요소를 출력합니다.
+   * 시간 복잡도: O(n)
+   */
+  print() {
+    let current = this.head;
+    let listString = '';
+
+    while (current !== null) {
+      listString += `${current.data} <-> `;
+      current = current.next;
+    }
+
+    console.log(listString + 'null');
+  }
 }

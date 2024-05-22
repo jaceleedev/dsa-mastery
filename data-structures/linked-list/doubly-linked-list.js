@@ -311,4 +311,24 @@ class DoublyLinkedList {
 
     return -1;
   }
+
+  /**
+   * 리스트를 반대로 뒤집습니다.
+   * 시간 복잡도: O(n)
+   */
+  reverse() {
+    let current = this.head;
+    let temp = null;
+
+    while (current !== null) {
+      temp = current.next;
+      current.next = current.prev;
+      current.prev = temp;
+      current = current.prev;
+    }
+
+    temp = this.head;
+    this.head = this.tail;
+    this.tail = temp;
+  }
 }

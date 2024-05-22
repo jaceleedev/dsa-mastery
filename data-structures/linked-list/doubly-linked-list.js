@@ -348,4 +348,21 @@ class DoublyLinkedList {
 
     return array;
   }
+
+  /**
+   * 리스트를 복사합니다.
+   * 시간 복잡도: O(n)
+   * @returns {DoublyLinkedList} 복사된 리스트
+   */
+  clone() {
+    const newList = new DoublyLinkedList();
+    let current = this.head;
+
+    while (current !== null) {
+      newList.append(current.data);
+      current = current.next;
+    }
+
+    return newList;
+  }
 }

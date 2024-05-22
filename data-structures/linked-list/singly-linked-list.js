@@ -150,7 +150,7 @@ class SinglyLinkedList {
    */
   insertAt(index, data) {
     if (index < 0 || index > this.size) {
-      return;
+      return null;
     }
 
     const newNode = new Node(data);

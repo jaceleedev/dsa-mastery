@@ -319,13 +319,15 @@ class SinglyLinkedList {
     let current = this.head;
     let next = null;
 
+    // 리스트를 순회하며 노드의 방향을 뒤집는다.
     while (current !== null) {
-      next = current.next;
-      current.next = previous;
-      previous = current;
-      current = next;
+      next = current.next; // 다음 노드를 저장한다.
+      current.next = previous; // 다음 노드를 이전 노드로 변경한다.
+      previous = current; // 이전 노드를 현재 노드로 변경한다.
+      current = next; // 현재 노드를 다음 노드로 변경한다.
     }
 
+    // 역순으로 뒤집은 리스트의 첫 번째 노드를 head로 설정한다.
     this.head = previous;
   }
 

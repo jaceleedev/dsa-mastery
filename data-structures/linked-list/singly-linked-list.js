@@ -55,29 +55,38 @@ class SinglyLinkedList {
    * @returns {any} 제거된 노드의 데이터
    */
   removeAt(index) {
+    // 인덱스가 유효한 범위 내에 있는지 확인한다.
     if (index < 0 || index >= this.size) {
-      return null;
+      throw new RangeError('Index out of range');
     }
 
-    let removedData = null;
-
+    // 첫 번째 노드를 제거하는 경우
     if (index === 0) {
-      removedData = this.head.data;
+      const removedData = this.head.data;
       this.head = this.head.next;
-    } else {
-      let current = this.head;
-      let previous = null;
-      let count = 0;
 
-      while (count < index) {
-        previous = current;
-        current = current.next;
-        ++count;
-      }
+      --this.size;
 
-      removedData = current.data;
-      previous.next = current.next;
+      return removedData;
     }
+
+    // 제거할 노드의 위치로 이동한다.
+    let current = this.head;
+    let previous = null;
+    let count = 0;
+
+    while (count < index) {
+      previous = current;
+      current = current.next;
+      ++count;
+    }
+
+    // 노드를 제거하고 데이터를 저장한다.
+    const removedData = current.data;
+    previous.next = current.next;
+
+    // 제거된 노드의 참조를 명시적으로 없앤다.
+    current.next = null;
 
     --this.size;
 

@@ -119,19 +119,26 @@ class DoublyLinkedList {
     let current = this.head;
 
     while (current !== null) {
+      // 현재 노드의 데이터와 제거할 데이터가 일치하는 경우
       if (current.data === data) {
+        // 현재 노드가 head인 경우
         if (current === this.head) {
           this.head = this.head.next;
 
+          // 리스트에 하나의 노드만 있는 경우
           if (this.head === null) {
             this.tail = null;
           } else {
             this.head.prev = null;
           }
-        } else if (current === this.tail) {
+        }
+        // 현재 노드가 tail인 경우
+        else if (current === this.tail) {
           this.tail = this.tail.prev;
           this.tail.next = null;
-        } else {
+        }
+        // 현재 노드가 head와 tail 사이에 있는 경우
+        else {
           current.prev.next = current.next;
           current.next.prev = current.prev;
         }

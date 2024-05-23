@@ -169,26 +169,32 @@ class SinglyLinkedList {
    * @param {any} data - 삽입할 데이터
    */
   insertAt(index, data) {
-    if (index < 0 || index > this.size) {
-      return null;
+    // 인덱스가 유효한 범위 내에 있는지 확인한다.
+    if (index < 0 || index >= this.size) {
+      throw new RangeError('Index out of range');
     }
 
     const newNode = new Node(data);
 
+    // 첫 번째 위치에 노드를 삽입하는 경우
     if (index === 0) {
       newNode.next = this.head;
       this.head = newNode;
-    } else {
+    }
+    // 다른 위치에 노드를 삽입하는 경우
+    else {
       let current = this.head;
       let previous = null;
       let count = 0;
 
+      // 주어진 인덱스의 위치로 이동한다.
       while (count < index) {
         previous = current;
         current = current.next;
         ++count;
       }
 
+      // 새로운 노드를 삽입하고 연결을 수정한다.
       newNode.next = current;
       previous.next = newNode;
     }

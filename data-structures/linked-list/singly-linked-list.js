@@ -170,7 +170,7 @@ class SinglyLinkedList {
    */
   insertAt(index, data) {
     // 인덱스가 유효한 범위 내에 있는지 확인한다.
-    if (index < 0 || index >= this.size) {
+    if (index < 0 || index > this.size) {
       throw new RangeError('Index out of range');
     }
 

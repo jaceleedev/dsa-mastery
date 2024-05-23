@@ -104,22 +104,31 @@ class SinglyLinkedList {
       return null;
     }
 
+    // 첫 번째 노드를 제거하는 경우
     if (this.head.data === data) {
+      const removedData = this.head.data;
       this.head = this.head.next;
+
       --this.size;
 
-      return data;
+      return removedData;
     }
 
+    // 나머지 노드를 제거하는 경우
     let current = this.head;
     let previous = null;
 
     while (current !== null) {
       if (current.data === data) {
+        const removedData = current.data;
         previous.next = current.next;
+
+        // 제거된 노드의 참조를 명시적으로 없앤다.
+        current.next = null;
+
         --this.size;
 
-        return data;
+        return removedData;
       }
 
       previous = current;

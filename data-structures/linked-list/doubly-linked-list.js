@@ -200,13 +200,16 @@ class DoublyLinkedList {
    * @param {any} data - 삽입할 데이터
    */
   insertAt(index, data) {
-    if (index < 0 || index >= this.size) {
-      return null;
+    // 인덱스가 유효한 범위 내에 있는지 확인한다.
+    if (index < 0 || index > this.size) {
+      throw new RangeError('Index out of range');
     }
 
     const newNode = new Node(data);
 
+    // 첫 번째 위치에 노드를 삽입하는 경우
     if (index === 0) {
+      // head가 없는 경우 (리스트가 비어 있는 경우)
       if (this.head === null) {
         this.head = newNode;
         this.tail = newNode;
@@ -215,21 +218,42 @@ class DoublyLinkedList {
         this.head.prev = newNode;
         this.head = newNode;
       }
-    } else if (index === this.size) {
+    }
+    // 마지막 위치에 노드를 삽입하는 경우
+    else if (index === this.size) {
       this.tail.next = newNode;
       newNode.prev = this.tail;
       this.tail = newNode;
-    } else {
-      let current = this.head;
-      let count = 0;
+    }
+    // 첫 위치와 끝 위치 사이에 노드를 삽입하는 경우
+    else {
+      let current;
+      let count;
 
-      while (count < index) {
-        current = current.next;
-        ++count;
+      // 인덱스가 리스트 길이의 중간보다 앞에 있는 경우
+      if (index < this.size / 2) {
+        current = this.head;
+        count = 0;
+
+        while (count < index) {
+          current = current.next;
+          ++count;
+        }
+      }
+      // 인덱스가 리스트 길이의 중간보다 뒤에 있는 경우
+      else {
+        current = this.tail;
+        count = this.size - 1;
+
+        while (count > index) {
+          current = current.prev;
+          --count;
+        }
       }
 
       newNode.next = current;
       newNode.prev = current.prev;
+
       current.prev.next = newNode;
       current.prev = newNode;
     }

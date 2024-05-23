@@ -60,27 +60,36 @@ class DoublyLinkedList {
    * @returns {any} 제거된 노드의 데이터
    */
   removeAt(index) {
+    // 인덱스가 유효한 범위 내에 있는지 확인한다.
     if (index < 0 || index >= this.size) {
-      return null;
+      throw new RangeError('Index out of range');
     }
 
     let removedData;
 
+    // 첫 번째 노드를 제거하는 경우
     if (index === 0) {
       removedData = this.head.data;
       this.head = this.head.next;
 
+      // 리스트에 하나의 노드만 있었던 경우
       if (this.head === null) {
         this.tail = null;
-      } else {
+      }
+      // 리스트에 여러 개의 노드가 있었던 경우
+      else {
         this.head.prev = null;
       }
-    } else if (index === this.size - 1) {
+    }
+    // 마지막 노드를 제거하는 경우
+    else if (index === this.size - 1) {
       removedData = this.tail.data;
 
       this.tail = this.tail.prev;
       this.tail.next = null;
-    } else {
+    }
+    // 그 밖의 노드를 제거하는 경우
+    else {
       let current = this.head;
       let count = 0;
 

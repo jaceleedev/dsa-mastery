@@ -108,4 +108,55 @@ class CircularSinglyLinkedList {
 
     return removedData;
   }
+
+  /**
+   * 특정 데이터를 찾아 제거합니다.
+   * 시간 복잡도: O(n)
+   * @param {any} data - 제거할 데이터
+   * @returns {any} 제거된 데이터
+   */
+  remove(data) {
+    if (this.head === null) {
+      return null;
+    }
+
+    let current = this.head;
+    let previous = this.tail;
+    let nodesChecked = 0;
+
+    // 원형이므로, 한 바퀴만 돌아서 탐색한다.
+    while (nodesChecked < this.size) {
+      // 현재 노드의 데이터와 제거할 데이터가 일치하는 경우
+      if (current.data === data) {
+        // 현재 노드가 head인 경우
+        if (current === this.head) {
+          this.head = this.head.next;
+          this.tail.next = this.head;
+
+          // 리스트에 하나의 노드만 있는 경우
+          if (this.size === 1) {
+            this.head = null;
+            this.tail = null;
+          }
+        } else {
+          previous.next = current.next;
+
+          // 마지막 노드를 제거하는 경우
+          if (current === this.tail) {
+            this.tail = previous;
+          }
+        }
+
+        --this.size;
+
+        return data;
+      }
+
+      previous = current;
+      current = current.next;
+      ++nodesChecked;
+    }
+
+    return null;
+  }
 }

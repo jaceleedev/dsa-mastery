@@ -63,42 +63,45 @@ class CircularSinglyLinkedList {
    * 시간 복잡도: O(n)
    * @param {number} index - 제거할 노드의 위치
    * @returns {any} 제거된 노드의 데이터
+   * @throws {RangeError} - 인덱스가 유효한 범위를 벗어날 경우
    */
   removeAt(index) {
+    // 인덱스가 유효한 범위 내에 있는지 확인한다.
     if (index < 0 || index >= this.size) {
-      return null;
+      throw new RangeError('Index out of range');
     }
 
-    let removedData = null;
+    let current = this.head;
+    let previous = null;
+    let count = 0;
 
+    while (count < index) {
+      previous = current;
+      current = current.next;
+      ++count;
+    }
+
+    const removedData = current.data;
+
+    // 첫 번째 노드를 제거하는 경우
     if (index === 0) {
-      removedData = this.head.data;
-
-      if (this.size === 1) {
-        this.head = null;
-        this.tail = null;
-      } else {
-        this.head = this.head.next;
-        this.tail.next = this.head;
-      }
-    } else {
-      let current = this.head;
-      let previous = null;
-      let count = 0;
-
-      while (count < index) {
-        previous = current;
-        current = current.next;
-        ++count;
-      }
-
-      removedData = current.data;
+      this.head = this.head.next;
+      this.tail.next = this.head;
+    }
+    // 그 밖의 노드를 제거하는 경우
+    else {
       previous.next = current.next;
 
+      // tail을 제거하는 경우, tail을 업데이트한다.
       if (index === this.size - 1) {
         this.tail = previous;
-        this.tail.next = this.head;
       }
+    }
+
+    // 리스트에 노드가 하나밖에 없는 경우
+    if (this.size === 1) {
+      this.head = null;
+      this.tail = null;
     }
 
     --this.size;

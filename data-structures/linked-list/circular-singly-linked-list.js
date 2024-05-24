@@ -43,14 +43,17 @@ class CircularSinglyLinkedList {
   prepend(data) {
     const newNode = new Node(data);
 
+    // 리스트가 비어있는 경우
     if (this.head === null) {
-      this.head = newNode;
       this.tail = newNode;
-    } else {
-      newNode.next = this.head;
-      this.head = newNode;
-      this.tail.next = this.head;
     }
+    // 리스트에 노드가 있는 경우
+    else {
+      newNode.next = this.head;
+    }
+
+    this.head = newNode;
+    this.tail.next = this.head;
 
     ++this.size;
   }

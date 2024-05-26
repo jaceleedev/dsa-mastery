@@ -159,4 +159,29 @@ class CircularSinglyLinkedList {
 
     return null;
   }
+
+  /**
+   * 특정 위치의 노드 데이터를 반환합니다.
+   * 시간 복잡도: O(n)
+   * @param {number} index - 데이터를 반환할 노드의 위치
+   * @returns {any} 노드의 데이터
+   * @throws {RangeError} - 인덱스가 유효한 범위를 벗어날 경우
+   */
+  getAt(index) {
+    // 인덱스가 유효한 범위 내에 있는지 확인한다.
+    if (index < 0 || index >= this.size) {
+      throw new RangeError('Index out of range');
+    }
+
+    let current = this.head;
+    let count = 0;
+
+    // 주어진 인덱스의 위치로 이동한다.
+    while (count < index) {
+      current = current.next;
+      ++count;
+    }
+
+    return current.data;
+  }
 }

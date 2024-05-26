@@ -253,4 +253,13 @@ class CircularSinglyLinkedList {
   getSize() {
     return this.size;
   }
+
+  /**
+   * 리스트가 비어있는지 확인합니다.
+   * 시간 복잡도: O(1)
+   * @returns {boolean} 리스트가 비어있으면 true, 그렇지 않으면 false
+   */
+  isEmpty() {
+    return this.size === 0;
+  }
 }

@@ -184,4 +184,54 @@ class CircularSinglyLinkedList {
 
     return current.data;
   }
+
+  /**
+   * 특정 위치에 노드를 삽입합니다.
+   * 시간 복잡도: O(n)
+   * @param {number} index - 노드를 삽입할 위치
+   * @param {any} data - 삽입할 데이터
+   * @throws {RangeError} - 인덱스가 유효한 범위를 벗어날 경우
+   */
+  insertAt(index, data) {
+    // 인덱스가 유효한 범위 내에 있는지 확인한다.
+    if (index < 0 || index > this.size) {
+      throw new RangeError('Index out of range');
+    }
+
+    const newNode = new Node(data);
+
+    // 첫 번째 위치에 노드를 삽입하는 경우
+    if (index === 0) {
+      // head가 없는 경우 (리스트가 비어 있는 경우)
+      if (this.head === null) {
+        this.head = newNode;
+        this.tail = newNode;
+        newNode.next = newNode;
+      } else {
+        newNode.next = this.head;
+        this.head = newNode;
+        this.tail.next = this.head;
+      }
+    } else {
+      let current = this.head;
+      let previous = null;
+      let count = 0;
+
+      while (count < index) {
+        previous = current;
+        current = current.next;
+        ++count;
+      }
+
+      newNode.next = current;
+      previous.next = newNode;
+
+      // 마지막 위치에 노드를 삽입하는 경우
+      if (index === this.size) {
+        this.tail = newNode;
+      }
+    }
+
+    ++this.size;
+  }
 }

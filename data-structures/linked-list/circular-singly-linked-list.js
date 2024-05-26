@@ -351,4 +351,27 @@ class CircularSinglyLinkedList {
 
     return lastIndex;
   }
+
+  /**
+   * 리스트를 반대로 뒤집습니다.
+   * 시간 복잡도: O(n)
+   */
+  reverse() {
+    let previous = this.tail;
+    let current = this.head;
+    let next = null;
+    let nodesChecked = 0;
+
+    while (nodesChecked < this.size) {
+      next = current.next; // 다음 노드를 저장한다.
+      current.next = previous; // 현재 노드의 다음 노드를 이전 노드로 변경한다.
+      previous = current; // 이전 노드를 현재 노드로 변경한다.
+      current = next; // 현재 노드를 다음 노드로 변경한다.
+      ++nodesChecked;
+    }
+
+    // head와 tail을 교환한다.
+    this.tail = this.head;
+    this.head = previous;
+  }
 }

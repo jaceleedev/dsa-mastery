@@ -280,4 +280,26 @@ class CircularSinglyLinkedList {
 
     console.log(listString + '(head)');
   }
+
+  /**
+   * 리스트에 특정 데이터가 포함되어 있는지 확인합니다.
+   * 시간 복잡도: O(n)
+   * @param {any} data - 확인할 데이터
+   * @returns {boolean} 데이터가 포함되어 있으면 true, 그렇지 않으면 false
+   */
+  contains(data) {
+    let current = this.head;
+    let nodesChecked = 0;
+
+    while (nodesChecked < this.size) {
+      if (current.data === data) {
+        return true;
+      }
+
+      current = current.next;
+      ++nodesChecked;
+    }
+
+    return false;
+  }
 }

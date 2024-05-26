@@ -374,4 +374,23 @@ class CircularSinglyLinkedList {
     this.tail = this.head;
     this.head = previous;
   }
+
+  /**
+   * 리스트를 배열로 변환합니다.
+   * 시간 복잡도: O(n)
+   * @returns {any[]} 리스트의 요소를 포함하는 배열
+   */
+  toArray() {
+    const array = [];
+    let current = this.head;
+    let nodesChecked = 0;
+
+    while (nodesChecked < this.size) {
+      array.push(current.data);
+      current = current.next;
+      ++nodesChecked;
+    }
+
+    return array;
+  }
 }

@@ -334,4 +334,28 @@ class CircularDoublyLinkedList {
 
     return false;
   }
+
+  /**
+   * 리스트에서 특정 데이터의 인덱스를 반환합니다.
+   * 시간 복잡도: O(n)
+   * @param {any} data - 인덱스를 찾을 데이터
+   * @returns {number} 데이터의 인덱스 (없으면 -1)
+   */
+  indexOf(data) {
+    let current = this.head;
+    let index = 0;
+    let nodesChecked = 0;
+
+    while (nodesChecked < this.size) {
+      if (current.data === data) {
+        return index;
+      }
+
+      current = current.next;
+      ++index;
+      ++nodesChecked;
+    }
+
+    return -1;
+  }
 }

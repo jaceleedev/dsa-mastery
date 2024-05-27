@@ -174,4 +174,44 @@ class CircularDoublyLinkedList {
 
     return null;
   }
+
+  /**
+   * 특정 위치의 노드 데이터를 반환합니다.
+   * 시간 복잡도: O(n)
+   * @param {number} index - 데이터를 반환할 노드의 위치
+   * @returns {any} 노드의 데이터
+   * @throws {RangeError} - 인덱스가 유효한 범위를 벗어날 경우
+   */
+  getAt(index) {
+    // 인덱스가 유효한 범위 내에 있는지 확인한다.
+    if (index < 0 || index >= this.size) {
+      throw new RangeError('Index out of range');
+    }
+
+    let current;
+    let count;
+
+    // 인덱스가 리스트 길이의 중간보다 앞에 있는 경우
+    if (index < this.size / 2) {
+      current = this.head;
+      count = 0;
+
+      while (count < index) {
+        current = current.next;
+        ++count;
+      }
+    }
+    // 인덱스가 리스트 길이의 중간보다 뒤에 있는 경우
+    else {
+      current = this.tail;
+      count = this.size - 1;
+
+      while (count > index) {
+        current = current.prev;
+        --count;
+      }
+    }
+
+    return current.data;
+  }
 }

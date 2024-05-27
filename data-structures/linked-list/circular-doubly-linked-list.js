@@ -214,4 +214,56 @@ class CircularDoublyLinkedList {
 
     return current.data;
   }
+
+  /**
+   * 특정 위치에 노드를 삽입합니다.
+   * 시간 복잡도: O(n)
+   * @param {number} index - 노드를 삽입할 위치
+   * @param {any} data - 삽입할 데이터
+   * @throws {RangeError} - 인덱스가 유효한 범위를 벗어날 경우
+   */
+  insertAt(index, data) {
+    // 인덱스가 유효한 범위 내에 있는지 확인한다.
+    if (index < 0 || index > this.size) {
+      throw new RangeError('Index out of range');
+    }
+
+    const newNode = new Node(data);
+
+    if (index === 0) {
+      if (this.head === null) {
+        this.head = newNode;
+        this.tail = newNode;
+        newNode.next = newNode;
+        newNode.prev = newNode;
+      } else {
+        newNode.next = this.head;
+        newNode.prev = this.tail;
+        this.head.prev = newNode;
+        this.tail.next = newNode;
+        this.head = newNode;
+      }
+    } else if (index === this.size) {
+      newNode.next = this.head;
+      newNode.prev = this.tail;
+      this.tail.next = newNode;
+      this.head.prev = newNode;
+      this.tail = newNode;
+    } else {
+      let current = this.head;
+      let count = 0;
+
+      while (count < index) {
+        current = current.next;
+        ++count;
+      }
+
+      newNode.next = current;
+      newNode.prev = current.prev;
+      current.prev.next = newNode;
+      current.prev = newNode;
+    }
+
+    ++this.size;
+  }
 }

@@ -122,4 +122,56 @@ class CircularDoublyLinkedList {
 
     return removedData;
   }
+
+  /**
+   * 특정 데이터를 찾아 제거합니다.
+   * 시간 복잡도: O(n)
+   * @param {any} data - 제거할 데이터
+   * @returns {any} 제거된 데이터
+   */
+  remove(data) {
+    if (this.head === null) {
+      return null;
+    }
+
+    let current = this.head;
+    let nodesChecked = 0;
+
+    // 원형이므로, 한 바퀴만 돌아서 탐색한다.
+    while (nodesChecked < this.size) {
+      // 현재 노드의 데이터와 제거할 데이터가 일치하는 경우
+      if (current.data === data) {
+        // 현재 노드가 head인 경우
+        if (current === this.head) {
+          // 리스트에 하나의 노드만 있는 경우
+          if (this.size === 1) {
+            this.head = null;
+            this.tail = null;
+          } else {
+            this.head = this.head.next;
+            this.head.prev = this.tail;
+            this.tail.next = this.head;
+          }
+        }
+        // 현재 노드가 tail인 경우
+        else if (current === this.tail) {
+          this.tail = this.tail.prev;
+          this.tail.next = this.head;
+          this.head.prev = this.tail;
+        } else {
+          current.prev.next = current.next;
+          current.next.prev = current.prev;
+        }
+
+        --this.size;
+
+        return data;
+      }
+
+      current = current.next;
+      ++nodesChecked;
+    }
+
+    return null;
+  }
 }

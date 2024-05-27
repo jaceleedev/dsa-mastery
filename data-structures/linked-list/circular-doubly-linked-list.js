@@ -445,3 +445,44 @@ class CircularDoublyLinkedList {
     return newList;
   }
 }
+
+// 테스트 코드
+const list = new CircularDoublyLinkedList();
+list.append(1);
+list.append(2);
+list.append(3);
+
+list.print(); // 1 <-> 2 <-> 3 <-> (head)
+
+console.log(list.getAt(1)); // 2
+
+list.insertAt(1, 4);
+
+list.print(); // 1 <-> 4 <-> 2 <-> 3 <-> (head)
+
+console.log(list.removeAt(1)); // 4
+
+list.print(); // 1 <-> 2 <-> 3 <-> (head)
+
+console.log(list.contains(2)); // true
+console.log(list.indexOf(3)); // 2
+console.log(list.lastIndexOf(3)); // 2
+
+list.reverse();
+
+list.print(); // 3 <-> 2 <-> 1 <-> (head)
+
+console.log(list.toArray()); // [3, 2, 1]
+
+const clonedList = list.clone();
+
+clonedList.print(); // 3 <-> 2 <-> 1 <-> (head)
+
+console.log(list.getSize()); // 3
+console.log(list.isEmpty()); // false
+
+list.clear();
+
+console.log(list.isEmpty()); // true
+
+list.print(); // (head)

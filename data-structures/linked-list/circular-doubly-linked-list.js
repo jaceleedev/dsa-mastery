@@ -425,4 +425,23 @@ class CircularDoublyLinkedList {
 
     return array;
   }
+
+  /**
+   * 리스트를 복사합니다.
+   * 시간 복잡도: O(n)
+   * @returns {CircularDoublyLinkedList} 복사된 리스트
+   */
+  clone() {
+    const newList = new CircularDoublyLinkedList();
+    let current = this.head;
+    let nodesChecked = 0;
+
+    while (nodesChecked < this.size) {
+      newList.append(current.data);
+      current = current.next;
+      ++nodesChecked;
+    }
+
+    return newList;
+  }
 }

@@ -294,4 +294,22 @@ class CircularDoublyLinkedList {
   isEmpty() {
     return this.size === 0;
   }
+
+  /**
+   * 리스트의 모든 요소를 출력합니다.
+   * 시간 복잡도: O(n)
+   */
+  print() {
+    let current = this.head;
+    let listString = '';
+    let nodesChecked = 0;
+
+    while (nodesChecked < this.size) {
+      listString += `${current.data} <-> `;
+      current = current.next;
+      ++nodesChecked;
+    }
+
+    console.log(listString + '(head)');
+  }
 }

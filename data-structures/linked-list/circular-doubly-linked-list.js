@@ -66,4 +66,60 @@ class CircularDoublyLinkedList {
 
     ++this.size;
   }
+
+  /**
+   * 특정 위치의 노드를 제거하고 데이터를 반환합니다.
+   * 시간 복잡도: O(n)
+   * @param {number} index - 제거할 노드의 위치
+   * @returns {any} 제거된 노드의 데이터
+   * @throws {RangeError} - 인덱스가 유효한 범위를 벗어날 경우
+   */
+  removeAt(index) {
+    // 인덱스가 유효한 범위 내에 있는지 확인한다.
+    if (index < 0 || index >= this.size) {
+      throw new RangeError('Index out of range');
+    }
+
+    let removedData;
+
+    // 첫 번째 노드를 제거하는 경우
+    if (index === 0) {
+      removedData = this.head.data;
+
+      // 리스트에 노드가 하나만 있는 경우
+      if (this.size === 1) {
+        this.head = null;
+        this.tail = null;
+      } else {
+        this.head = this.head.next;
+        this.head.prev = this.tail;
+        this.tail.next = this.head;
+      }
+    }
+    // 마지막 노드를 제거하는 경우
+    else if (index === this.size - 1) {
+      removedData = this.tail.data;
+
+      this.tail = this.tail.prev;
+      this.tail.next = this.head;
+      this.head.prev = this.tail;
+    } else {
+      let current = this.head;
+      let count = 0;
+
+      while (count < index) {
+        current = current.next;
+        ++count;
+      }
+
+      removedData = current.data;
+
+      current.prev.next = current.next;
+      current.next.prev = current.prev;
+    }
+
+    --this.size;
+
+    return removedData;
+  }
 }

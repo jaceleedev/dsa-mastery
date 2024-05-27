@@ -27,7 +27,6 @@ class CircularDoublyLinkedList {
       this.tail = newNode;
       newNode.next = newNode;
       newNode.prev = newNode;
-
     }
     // 리스트에 노드가 있는 경우
     else {
@@ -36,6 +35,33 @@ class CircularDoublyLinkedList {
       this.tail.next = newNode;
       this.head.prev = newNode;
       this.tail = newNode;
+    }
+
+    ++this.size;
+  }
+
+  /**
+   * 리스트의 시작 부분에 노드를 추가합니다.
+   * 시간 복잡도: O(1)
+   * @param {any} data - 추가할 데이터
+   */
+  prepend(data) {
+    const newNode = new Node(data);
+
+    // 리스트가 비어있는 경우
+    if (this.head === null) {
+      this.head = newNode;
+      this.tail = newNode;
+      newNode.next = newNode;
+      newNode.prev = newNode;
+    }
+    // 리스트에 노드가 있는 경우
+    else {
+      newNode.next = this.head;
+      newNode.prev = this.tail;
+      this.head.prev = newNode;
+      this.tail.next = newNode;
+      this.head = newNode;
     }
 
     ++this.size;

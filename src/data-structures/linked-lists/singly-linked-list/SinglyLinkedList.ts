@@ -76,4 +76,28 @@ class SinglyLinkedList<T> {
 
     current!.data = data;
   }
+
+  removeAt(index: number): void {
+    if (index < 0 || index >= this.size) {
+      throw new RangeError('Index out of bounds');
+    }
+
+    let current = this.head;
+    let previous = null;
+    let count = 0;
+
+    if (index === 0) {
+      this.head = current!.next;
+    } else {
+      while (count < index) {
+        current = current!.next;
+        previous = current;
+        ++count;
+      }
+
+      previous!.next = current!.next;
+    }
+
+    --this.size;
+  }
 }

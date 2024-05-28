@@ -50,7 +50,7 @@ class SinglyLinkedList<T> {
       throw new RangeError('Index out of bounds');
     }
 
-    let current: ListNode<T> | null = this.head;
+    let current = this.head;
     let count = 0;
 
     while (count < index) {
@@ -66,7 +66,7 @@ class SinglyLinkedList<T> {
       throw new RangeError('Index out of bounds');
     }
 
-    let current: ListNode<T> | null = this.head;
+    let current = this.head;
     let count = 0;
 
     while (count < index) {

@@ -44,4 +44,20 @@ class SinglyLinkedList<T> {
 
     ++this.size;
   }
+
+  getAt(index: number): T | null {
+    if (index < 0 || index >= this.size) {
+      throw new RangeError('Index out of bounds');
+    }
+
+    let current: ListNode<T> | null = this.head;
+    let count = 0;
+
+    while (count < index) {
+      current = current!.next;
+      ++count;
+    }
+
+    return current!.data;
+  }
 }

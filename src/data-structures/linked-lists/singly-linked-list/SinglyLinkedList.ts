@@ -33,8 +33,8 @@ export class SinglyLinkedList<T> {
       let count = 0;
 
       while (count < index) {
-        current = current!.next;
         previous = current;
+        current = current!.next;
         ++count;
       }
 

@@ -178,4 +178,10 @@ class SinglyLinkedList<T> {
     this.head = null;
     this.size = 0;
   }
+
+  print(): void {
+    const array = this.toArray();
+
+    console.log(array.join(' -> '));
+  }
 }

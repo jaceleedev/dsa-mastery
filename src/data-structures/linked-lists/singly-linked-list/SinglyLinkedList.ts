@@ -8,7 +8,7 @@ class ListNode<T> {
   }
 }
 
-class SinglyLinkedList<T> {
+export class SinglyLinkedList<T> {
   head: ListNode<T> | null;
   size: number;
 

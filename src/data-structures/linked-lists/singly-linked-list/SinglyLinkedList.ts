@@ -138,4 +138,19 @@ class SinglyLinkedList<T> {
 
     return -1;
   }
+
+  reverse(): void {
+    let current = this.head;
+    let previous = null;
+    let next = null;
+
+    while (current) {
+      next = current.next;
+      current.next = previous;
+      previous = current;
+      current = next;
+    }
+
+    this.head = previous;
+  }
 }

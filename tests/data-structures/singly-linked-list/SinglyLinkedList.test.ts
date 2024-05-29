@@ -83,4 +83,13 @@ describe('단일 연결 리스트', () => {
     list.reverse();
     expect(list.toArray()).toEqual([3, 2, 1]);
   });
+
+  test('리스트를 비울 수 있어야 합니다', () => {
+    list.append(1);
+    list.append(2);
+    list.append(3);
+    list.clear();
+    expect(list.isEmpty()).toBe(true);
+    expect(list.length()).toBe(0);
+  });
 });

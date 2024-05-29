@@ -50,4 +50,13 @@ describe('단일 연결 리스트', () => {
     list.updateAt(1, 4);
     expect(list.getAt(1)).toBe(4);
   });
+
+  test('지정된 인덱스의 요소를 제거할 수 있어야 합니다', () => {
+    list.append(1);
+    list.append(2);
+    list.append(3);
+    list.removeAt(1);
+    expect(list.length()).toBe(2);
+    expect(list.toArray()).toEqual([1, 3]);
+  });
 });

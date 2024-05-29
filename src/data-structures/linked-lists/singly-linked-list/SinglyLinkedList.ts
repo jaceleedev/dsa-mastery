@@ -108,4 +108,18 @@ class SinglyLinkedList<T> {
   append(data: T): void {
     this.insertAt(this.size, data);
   }
+
+  contains(data: T): boolean {
+    let current = this.head;
+
+    while (current) {
+      if (current.data === data) {
+        return true;
+      }
+
+      current = current.next;
+    }
+
+    return false;
+  }
 }

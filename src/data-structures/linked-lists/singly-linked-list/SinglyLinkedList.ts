@@ -169,4 +169,8 @@ class SinglyLinkedList<T> {
   isEmpty(): boolean {
     return this.size === 0;
   }
+
+  length(): number {
+    return this.size;
+  }
 }

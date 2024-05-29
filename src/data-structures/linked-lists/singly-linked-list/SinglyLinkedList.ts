@@ -29,7 +29,7 @@ export class SinglyLinkedList<T> {
       this.head = newNode;
     } else {
       let current = this.head;
-      let previous = null;
+      let previous: ListNode<T> | null = null;
       let count = 0;
 
       while (count < index) {
@@ -83,7 +83,7 @@ export class SinglyLinkedList<T> {
     }
 
     let current = this.head;
-    let previous = null;
+    let previous: ListNode<T> | null = null;
     let count = 0;
 
     if (index === 0) {

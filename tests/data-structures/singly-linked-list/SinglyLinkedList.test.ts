@@ -11,4 +11,12 @@ describe('단일 연결 리스트', () => {
     expect(list.isEmpty()).toBe(true);
     expect(list.length()).toBe(0);
   });
+
+  test('요소를 뒤에 추가할 수 있어야 합니다', () => {
+    list.append(1);
+    list.append(2);
+    list.append(3);
+    expect(list.length()).toBe(3);
+    expect(list.toArray()).toEqual([1, 2, 3]);
+  });
 });

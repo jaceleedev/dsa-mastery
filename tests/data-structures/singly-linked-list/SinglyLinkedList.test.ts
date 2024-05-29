@@ -67,4 +67,12 @@ describe('단일 연결 리스트', () => {
     expect(list.contains(2)).toBe(true);
     expect(list.contains(4)).toBe(false);
   });
+
+  test('특정 요소의 인덱스를 찾을 수 있어야 합니다', () => {
+    list.append(1);
+    list.append(2);
+    list.append(3);
+    expect(list.find(2)).toBe(1);
+    expect(list.find(4)).toBe(-1);
+  });
 });

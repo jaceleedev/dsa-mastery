@@ -59,4 +59,12 @@ describe('단일 연결 리스트', () => {
     expect(list.length()).toBe(2);
     expect(list.toArray()).toEqual([1, 3]);
   });
+
+  test('리스트에 특정 요소가 있는지 확인할 수 있어야 합니다', () => {
+    list.append(1);
+    list.append(2);
+    list.append(3);
+    expect(list.contains(2)).toBe(true);
+    expect(list.contains(4)).toBe(false);
+  });
 });

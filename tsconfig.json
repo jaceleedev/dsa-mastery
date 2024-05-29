@@ -6,8 +6,7 @@
     "esModuleInterop": true, // CommonJS와 ES 모듈 간의 호환성 보장
     "skipLibCheck": true, // 라이브러리 파일 검사 건너뛰기
     "forceConsistentCasingInFileNames": true, // 파일 이름의 일관된 대소문자 사용 강제
-    "outDir": "./dist", // 컴파일된 파일이 저장될 디렉토리
-    "rootDir": "./src" // 소스 파일이 위치한 디렉토리
+    "outDir": "./dist" // 컴파일된 파일이 저장될 디렉토리
   },
   "include": ["src/**/*", "tests/**/*"], // 컴파일에 포함할 파일 및 디렉토리
   "exclude": ["node_modules"] // 컴파일에서 제외할 파일 및 디렉토리

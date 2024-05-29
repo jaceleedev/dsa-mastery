@@ -93,6 +93,16 @@ describe('단일 연결 리스트', () => {
     expect(list.length()).toBe(0);
   });
 
+  test('리스트의 요소를 출력할 수 있어야 합니다', () => {
+    list.append(1);
+    list.append(2);
+    list.append(3);
+    const consoleSpy = jest.spyOn(console, 'log').mockImplementation(() => {});
+    list.print();
+    expect(consoleSpy).toHaveBeenCalledWith('1 -> 2 -> 3');
+    consoleSpy.mockRestore();
+  });
+
   test('빈 리스트의 엣지 케이스를 처리할 수 있어야 합니다', () => {
     expect(() => list.getAt(0)).toThrow(RangeError);
     expect(() => list.updateAt(0, 1)).toThrow(RangeError);

@@ -104,4 +104,8 @@ class SinglyLinkedList<T> {
   prepend(data: T): void {
     this.insertAt(0, data);
   }
+
+  append(data: T): void {
+    this.insertAt(this.size, data);
+  }
 }

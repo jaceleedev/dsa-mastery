@@ -90,8 +90,8 @@ export class SinglyLinkedList<T> {
       this.head = current!.next;
     } else {
       while (count < index) {
-        current = current!.next;
         previous = current;
+        current = current!.next;
         ++count;
       }
 

@@ -122,4 +122,20 @@ class SinglyLinkedList<T> {
 
     return false;
   }
+
+  find(data: T): number {
+    let current = this.head;
+    let index = 0;
+
+    while (current) {
+      if (current.data === data) {
+        return index;
+      }
+
+      current = current.next;
+      ++index;
+    }
+
+    return -1;
+  }
 }

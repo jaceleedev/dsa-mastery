@@ -153,4 +153,16 @@ class SinglyLinkedList<T> {
 
     this.head = previous;
   }
+
+  toArray(): T[] {
+    const array = [];
+    let current = this.head;
+
+    while (current) {
+      array.push(current.data);
+      current = current.next;
+    }
+
+    return array;
+  }
 }

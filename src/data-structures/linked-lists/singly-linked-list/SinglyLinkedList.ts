@@ -173,4 +173,9 @@ class SinglyLinkedList<T> {
   length(): number {
     return this.size;
   }
+
+  clear(): void {
+    this.head = null;
+    this.size = 0;
+  }
 }

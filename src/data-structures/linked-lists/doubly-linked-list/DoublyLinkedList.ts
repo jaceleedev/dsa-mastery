@@ -89,4 +89,37 @@ export class DoublyLinkedList<T> {
 
     current!.data = data;
   }
+
+  removeAt(index: number): void {
+    if (index < 0 || index >= this.size) {
+      throw new RangeError('Index out of bounds');
+    }
+
+    let current = this.head;
+
+    if (index === 0) {
+      if (this.head!.next) {
+        this.head = this.head!.next;
+        this.head.prev = null;
+      } else {
+        this.head = null;
+        this.tail = null;
+      }
+    } else if (index === this.size - 1) {
+      this.tail = this.tail!.prev;
+      this.tail!.next = null;
+    } else {
+      let count = 0;
+
+      while (count < index) {
+        current = current!.next;
+        ++count;
+      }
+
+      current!.prev!.next = current!.next;
+      current!.next!.prev = current!.prev;
+    }
+
+    --this.size;
+  }
 }

@@ -73,4 +73,20 @@ export class DoublyLinkedList<T> {
 
     return current!.data;
   }
+
+  updateAt(index: number, data: T): void {
+    if (index < 0 || index >= this.size) {
+      throw new RangeError('Index out of bounds');
+    }
+
+    let current = this.head;
+    let count = 0;
+
+    while (count < index) {
+      current = current!.next;
+      ++count;
+    }
+
+    current!.data = data;
+  }
 }

@@ -20,4 +20,41 @@ export class DoublyLinkedList<T> {
     this.tail = null;
     this.size = 0;
   }
+
+  insertAt(index: number, data: T): void {
+    if (index < 0 || index > this.size) {
+      throw new RangeError('Index out of bounds');
+    }
+
+    const newNode = new ListNode(data);
+
+    if (index === 0) {
+      if (this.head) {
+        newNode.next = this.head;
+        this.head.prev = newNode;
+      } else {
+        this.tail = newNode;
+      }
+      this.head = newNode;
+    } else if (index === this.size) {
+      newNode.prev = this.tail;
+      this.tail!.next = newNode;
+      this.tail = newNode;
+    } else {
+      let current = this.head;
+      let count = 0;
+
+      while (count < index) {
+        current = current!.next;
+        ++count;
+      }
+
+      newNode.next = current;
+      newNode.prev = current!.prev;
+      current!.prev!.next = newNode;
+      current!.prev = newNode;
+    }
+
+    ++this.size;
+  }
 }

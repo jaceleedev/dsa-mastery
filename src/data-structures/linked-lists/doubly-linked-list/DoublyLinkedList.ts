@@ -9,3 +9,15 @@ class ListNode<T> {
     this.prev = null;
   }
 }
+
+export class DoublyLinkedList<T> {
+  head: ListNode<T> | null;
+  tail: ListNode<T> | null;
+  size: number;
+
+  constructor() {
+    this.head = null;
+    this.tail = null;
+    this.size = 0;
+  }
+}

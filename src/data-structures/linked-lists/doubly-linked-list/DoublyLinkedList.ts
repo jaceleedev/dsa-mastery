@@ -190,4 +190,8 @@ export class DoublyLinkedList<T> {
   isEmpty(): boolean {
     return this.size === 0;
   }
+
+  length(): number {
+    return this.size;
+  }
 }

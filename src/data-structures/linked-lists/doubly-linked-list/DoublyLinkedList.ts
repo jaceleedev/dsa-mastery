@@ -174,4 +174,16 @@ export class DoublyLinkedList<T> {
       this.head = previous.prev;
     }
   }
+
+  toArray(): T[] {
+    const array = [];
+    let current = this.head;
+
+    while (current) {
+      array.push(current.data);
+      current = current.next;
+    }
+
+    return array;
+  }
 }

@@ -143,4 +143,35 @@ export class DoublyLinkedList<T> {
 
     return false;
   }
+
+  find(data: T): number {
+    let current = this.head;
+    let index = 0;
+
+    while (current) {
+      if (current.data === data) {
+        return index;
+      }
+      current = current.next;
+      ++index;
+    }
+
+    return -1;
+  }
+
+  reverse(): void {
+    let current = this.head;
+    let previous = null;
+
+    while (current) {
+      previous = current.prev;
+      current.prev = current.next;
+      current.next = previous;
+      current = current.prev;
+    }
+
+    if (previous) {
+      this.head = previous.prev;
+    }
+  }
 }

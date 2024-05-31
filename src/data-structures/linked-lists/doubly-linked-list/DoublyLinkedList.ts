@@ -122,4 +122,8 @@ export class DoublyLinkedList<T> {
 
     --this.size;
   }
+
+  prepend(data: T): void {
+    this.insertAt(0, data);
+  }
 }

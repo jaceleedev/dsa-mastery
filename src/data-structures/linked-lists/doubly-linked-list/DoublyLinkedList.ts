@@ -186,4 +186,8 @@ export class DoublyLinkedList<T> {
 
     return array;
   }
+
+  isEmpty(): boolean {
+    return this.size === 0;
+  }
 }

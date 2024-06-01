@@ -84,8 +84,10 @@ export class Stack<T> {
    * 스택의 각 요소를 새로운 줄로 출력합니다.
    */
   print(): void {
+    let result = '';
     for (let i = this.size - 1; i >= 0; --i) {
-      console.log(this.items[i]);
+      result += `${this.items[i]}\n`;
     }
+    console.log(result);
   }
 }

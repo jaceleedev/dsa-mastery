@@ -26,4 +26,8 @@ describe('스택', () => {
     expect(stack.pop()).toBe(2);
     expect(stack.pop()).toBe(1);
   });
+
+  test('빈 스택에서 pop할 때, 에러가 발생되어야 합니다.', () => {
+    expect(() => stack.pop()).toThrow(Error);
+  });
 });

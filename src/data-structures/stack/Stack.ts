@@ -1,9 +1,14 @@
 export class Stack<T> {
   items: T[];
-  count: number;
+  size: number;
 
   constructor() {
     this.items = [];
-    this.count = 0;
+    this.size = 0;
+  }
+
+  push(data: T): void {
+    this.items.push(data);
+    ++this.size;
   }
 }

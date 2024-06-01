@@ -35,4 +35,11 @@ describe('이중 연결 리스트', () => {
     expect(list.length()).toBe(3);
     expect(list.toArray()).toEqual([1, 2, 3]);
   });
+
+  test('지정된 인덱스의 요소를 가져올 수 있어야 합니다', () => {
+    list.append(1);
+    list.append(2);
+    list.append(3);
+    expect(list.getAt(1)).toBe(2);
+  });
 });

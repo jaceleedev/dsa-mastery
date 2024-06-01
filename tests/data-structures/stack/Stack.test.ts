@@ -30,4 +30,10 @@ describe('스택', () => {
   test('빈 스택에서 pop할 때, 에러가 발생되어야 합니다.', () => {
     expect(() => stack.pop()).toThrow(Error);
   });
+
+  test('스택의 맨 위 요소를 확인할 때, 해당 요소가 반환되어야 합니다.', () => {
+    stack.push(1);
+    stack.push(2);
+    expect(stack.peek()).toBe(2);
+  });
 });

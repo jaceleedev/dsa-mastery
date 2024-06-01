@@ -49,4 +49,14 @@ describe('스택', () => {
     expect(stack.isEmpty()).toBe(true);
     expect(stack.length()).toBe(0);
   });
+
+  test('스택의 요소를 출력할 수 있어야 합니다', () => {
+    stack.push(1);
+    stack.push(2);
+    stack.push(3);
+    const consoleSpy = jest.spyOn(console, 'log').mockImplementation(() => {});
+    stack.print();
+    expect(consoleSpy).toHaveBeenCalledWith('3\n2\n1\n');
+    consoleSpy.mockRestore();
+  });
 });

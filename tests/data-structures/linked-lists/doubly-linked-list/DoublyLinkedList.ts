@@ -75,4 +75,12 @@ describe('이중 연결 리스트', () => {
     expect(list.find(2)).toBe(1);
     expect(list.find(4)).toBe(-1);
   });
+
+  test('리스트를 뒤집을 수 있어야 합니다', () => {
+    list.append(1);
+    list.append(2);
+    list.append(3);
+    list.reverse();
+    expect(list.toArray()).toEqual([3, 2, 1]);
+  });
 });

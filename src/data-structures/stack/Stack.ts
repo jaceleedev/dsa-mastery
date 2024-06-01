@@ -11,4 +11,16 @@ export class Stack<T> {
     this.items.push(data);
     ++this.size;
   }
+
+  pop(): T {
+    if (this.size === 0) {
+      throw new Error('Stack is empty');
+    }
+
+    --this.size;
+    const element = this.items[this.size];
+    this.items.splice(this.size, 1);
+
+    return element;
+  }
 }

@@ -19,4 +19,12 @@ describe('이중 연결 리스트', () => {
     expect(list.length()).toBe(3);
     expect(list.toArray()).toEqual([1, 2, 3]);
   });
+
+  test('요소를 앞에 추가할 수 있어야 합니다', () => {
+    list.prepend(1);
+    list.prepend(2);
+    list.prepend(3);
+    expect(list.length()).toBe(3);
+    expect(list.toArray()).toEqual([3, 2, 1]);
+  });
 });

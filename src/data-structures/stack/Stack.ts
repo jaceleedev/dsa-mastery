@@ -23,4 +23,8 @@ export class Stack<T> {
 
     return element;
   }
+
+  isEmpty(): boolean {
+    return this.size === 0;
+  }
 }

@@ -36,4 +36,8 @@ describe('스택', () => {
     stack.push(2);
     expect(stack.peek()).toBe(2);
   });
+
+  test('빈 스택에서 peek할 때, 에러가 발생되어야 합니다.', () => {
+    expect(() => stack.peek()).toThrow(Error);
+  });
 });

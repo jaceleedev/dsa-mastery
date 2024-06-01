@@ -102,4 +102,10 @@ describe('이중 연결 리스트', () => {
     expect(consoleSpy).toHaveBeenCalledWith('1 <-> 2 <-> 3');
     consoleSpy.mockRestore();
   });
+
+  test('빈 리스트의 엣지 케이스를 처리할 수 있어야 합니다', () => {
+    expect(() => list.getAt(0)).toThrow(RangeError);
+    expect(() => list.updateAt(0, 1)).toThrow(RangeError);
+    expect(() => list.removeAt(0)).toThrow(RangeError);
+  });
 });

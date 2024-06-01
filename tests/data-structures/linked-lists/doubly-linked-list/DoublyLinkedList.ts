@@ -27,4 +27,12 @@ describe('이중 연결 리스트', () => {
     expect(list.length()).toBe(3);
     expect(list.toArray()).toEqual([3, 2, 1]);
   });
+
+  test('지정된 인덱스에 요소를 삽입할 수 있어야 합니다', () => {
+    list.append(1);
+    list.append(3);
+    list.insertAt(1, 2);
+    expect(list.length()).toBe(3);
+    expect(list.toArray()).toEqual([1, 2, 3]);
+  });
 });

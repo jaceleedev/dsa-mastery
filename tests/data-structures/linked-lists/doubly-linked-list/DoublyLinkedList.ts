@@ -92,4 +92,14 @@ describe('이중 연결 리스트', () => {
     expect(list.isEmpty()).toBe(true);
     expect(list.length()).toBe(0);
   });
+
+  test('리스트의 요소를 출력할 수 있어야 합니다', () => {
+    list.append(1);
+    list.append(2);
+    list.append(3);
+    const consoleSpy = jest.spyOn(console, 'log').mockImplementation(() => {});
+    list.print();
+    expect(consoleSpy).toHaveBeenCalledWith('1 <-> 2 <-> 3');
+    consoleSpy.mockRestore();
+  });
 });

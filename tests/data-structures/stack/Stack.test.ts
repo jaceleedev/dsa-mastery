@@ -40,4 +40,13 @@ describe('스택', () => {
   test('빈 스택에서 peek할 때, 에러가 발생되어야 합니다.', () => {
     expect(() => stack.peek()).toThrow(Error);
   });
+
+  test('스택을 비울 수 있어야 합니다', () => {
+    stack.push(1);
+    stack.push(2);
+    stack.push(3);
+    stack.clear();
+    expect(stack.isEmpty()).toBe(true);
+    expect(stack.length()).toBe(0);
+  });
 });

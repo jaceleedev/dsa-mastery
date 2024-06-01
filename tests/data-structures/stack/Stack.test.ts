@@ -19,4 +19,11 @@ describe('스택', () => {
     expect(stack.length()).toBe(3);
     expect(stack.toArray()).toEqual([1, 2, 3]);
   });
+
+  test('요소를 pop할 수 있어야 합니다.', () => {
+    stack.push(1);
+    stack.push(2);
+    expect(stack.pop()).toBe(2);
+    expect(stack.pop()).toBe(1);
+  });
 });

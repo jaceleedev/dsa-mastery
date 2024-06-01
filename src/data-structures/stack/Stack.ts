@@ -24,6 +24,14 @@ export class Stack<T> {
     return element;
   }
 
+  peek(): T {
+    if (this.size === 0) {
+      throw new Error('Stack is empty');
+    }
+
+    return this.items[this.size - 1];
+  }
+
   isEmpty(): boolean {
     return this.size === 0;
   }

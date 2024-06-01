@@ -42,4 +42,8 @@ export class Stack<T> {
       console.log(this.items[i]);
     }
   }
+
+  toArray(): T[] {
+    return this.items.slice(0, this.size);
+  }
 }

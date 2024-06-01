@@ -36,4 +36,10 @@ export class Stack<T> {
     this.items = [];
     this.size = 0;
   }
+
+  print(): void {
+    for (let i = this.size - 1; i >= 0; --i) {
+      console.log(this.items[i]);
+    }
+  }
 }

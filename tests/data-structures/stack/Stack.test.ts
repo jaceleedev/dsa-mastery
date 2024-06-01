@@ -41,6 +41,13 @@ describe('스택', () => {
     expect(() => stack.peek()).toThrow(Error);
   });
 
+  test('스택이 배열로 변환되어야 합니다', () => {
+    stack.push(1);
+    stack.push(2);
+    stack.push(3);
+    expect(stack.toArray()).toEqual([1, 2, 3]);
+  });
+
   test('스택을 비울 수 있어야 합니다', () => {
     stack.push(1);
     stack.push(2);

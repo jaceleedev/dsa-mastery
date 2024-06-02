@@ -31,4 +31,10 @@ describe('큐', () => {
   test('빈 큐에서 dequeue할 때, 에러가 발생되어야 합니다', () => {
     expect(() => queue.dequeue()).toThrow(Error);
   });
+
+  test('큐의 첫 번째 요소를 확인할 때, 해당 요소가 반환되어야 합니다', () => {
+    queue.enqueue(1);
+    queue.enqueue(2);
+    expect(queue.peek()).toBe(1);
+  });
 });

@@ -17,11 +17,12 @@ export class Queue<T> {
 
   /**
    * 큐에서 데이터를 제거하고 반환합니다.
-   * @returns {T | undefined} 큐에서 제거된 데이터입니다. 큐가 비어있으면 undefined를 반환합니다.
+   * @returns {T} 큐에서 제거된 데이터입니다.
+   * @throws {Error} 큐가 비어있으면 오류를 던집니다.
    */
-  dequeue(): T | undefined {
+  dequeue(): T {
     if (this.isEmpty()) {
-      return;
+      throw new Error('Queue is empty');
     }
 
     const element = this.elements[this.start];
@@ -37,11 +38,12 @@ export class Queue<T> {
 
   /**
    * 큐의 앞에 있는 데이터를 반환합니다.
-   * @returns {T | undefined} 큐의 앞에 있는 데이터입니다. 큐가 비어있으면 undefined를 반환합니다.
+   * @returns {T} 큐의 앞에 있는 데이터입니다.
+   * @throws {Error} 큐가 비어있으면 오류를 던집니다.
    */
-  peek(): T | undefined {
+  peek(): T {
     if (this.isEmpty()) {
-      return;
+      throw new Error('Queue is empty');
     }
 
     return this.elements[this.start];

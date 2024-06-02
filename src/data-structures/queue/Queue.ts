@@ -47,4 +47,8 @@ export class Queue<T> {
     this.elements = [];
     this.start = 0;
   }
+
+  toArray(): T[] {
+    return this.elements.slice(this.start);
+  }
 }

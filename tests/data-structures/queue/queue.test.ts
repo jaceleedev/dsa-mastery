@@ -27,4 +27,8 @@ describe('큐', () => {
     expect(queue.dequeue()).toBe(1);
     expect(queue.dequeue()).toBe(2);
   });
+
+  test('빈 큐에서 dequeue할 때, 에러가 발생되어야 합니다', () => {
+    expect(() => queue.dequeue()).toThrow(Error);
+  });
 });

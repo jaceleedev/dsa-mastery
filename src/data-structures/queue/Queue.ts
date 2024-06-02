@@ -34,4 +34,8 @@ export class Queue<T> {
 
     return this.elements[this.start];
   }
+
+  isEmpty(): boolean {
+    return this.start >= this.elements.length;
+  }
 }

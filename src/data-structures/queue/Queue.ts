@@ -42,4 +42,9 @@ export class Queue<T> {
   length(): number {
     return this.elements.length - this.start;
   }
+
+  clear(): void {
+    this.elements = [];
+    this.start = 0;
+  }
 }

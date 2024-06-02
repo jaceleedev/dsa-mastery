@@ -10,4 +10,20 @@ export class Queue<T> {
   enqueue(element: T): void {
     this.elements.push(element);
   }
+
+  dequeue(): T | undefined {
+    if (this.isEmpty()) {
+      return;
+    }
+
+    const element = this.elements[this.start];
+    ++this.start;
+
+    if (this.start * 2 > this.elements.length) {
+      this.elements = this.elements.slice(this.start);
+      this.start = 0;
+    }
+
+    return element;
+  }
 }

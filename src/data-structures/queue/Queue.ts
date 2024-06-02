@@ -51,4 +51,8 @@ export class Queue<T> {
   toArray(): T[] {
     return this.elements.slice(this.start);
   }
+
+  print(): void {
+    console.log(this.toArray().join(', '));
+  }
 }

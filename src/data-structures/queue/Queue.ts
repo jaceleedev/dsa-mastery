@@ -6,4 +6,8 @@ export class Queue<T> {
     this.elements = [];
     this.start = 0;
   }
+
+  enqueue(element: T): void {
+    this.elements.push(element);
+  }
 }

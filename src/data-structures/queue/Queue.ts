@@ -26,4 +26,12 @@ export class Queue<T> {
 
     return element;
   }
+
+  peek(): T | undefined {
+    if (this.isEmpty()) {
+      return;
+    }
+
+    return this.elements[this.start];
+  }
 }

@@ -41,4 +41,11 @@ describe('큐', () => {
   test('빈 큐에서 peek할 때, 에러가 발생되어야 합니다', () => {
     expect(() => queue.peek()).toThrow(Error);
   });
+
+  test('큐가 배열로 변환되어야 합니다', () => {
+    queue.enqueue(1);
+    queue.enqueue(2);
+    queue.enqueue(3);
+    expect(queue.toArray()).toEqual([1, 2, 3]);
+  });
 });

@@ -48,4 +48,13 @@ describe('큐', () => {
     queue.enqueue(3);
     expect(queue.toArray()).toEqual([1, 2, 3]);
   });
+
+  test('큐를 비울 수 있어야 합니다', () => {
+    queue.enqueue(1);
+    queue.enqueue(2);
+    queue.enqueue(3);
+    queue.clear();
+    expect(queue.isEmpty()).toBe(true);
+    expect(queue.length()).toBe(0);
+  });
 });

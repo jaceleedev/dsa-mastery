@@ -38,4 +38,8 @@ export class Queue<T> {
   isEmpty(): boolean {
     return this.start >= this.elements.length;
   }
+
+  length(): number {
+    return this.elements.length - this.start;
+  }
 }

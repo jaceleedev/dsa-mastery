@@ -37,4 +37,8 @@ describe('큐', () => {
     queue.enqueue(2);
     expect(queue.peek()).toBe(1);
   });
+
+  test('빈 큐에서 peek할 때, 에러가 발생되어야 합니다', () => {
+    expect(() => queue.peek()).toThrow(Error);
+  });
 });

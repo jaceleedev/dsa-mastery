@@ -57,4 +57,14 @@ describe('큐', () => {
     expect(queue.isEmpty()).toBe(true);
     expect(queue.length()).toBe(0);
   });
+
+  test('큐의 요소를 출력할 수 있어야 합니다', () => {
+    queue.enqueue(1);
+    queue.enqueue(2);
+    queue.enqueue(3);
+    const consoleSpy = jest.spyOn(console, 'log').mockImplementation(() => {});
+    queue.print();
+    expect(consoleSpy).toHaveBeenCalledWith('1, 2, 3');
+    consoleSpy.mockRestore();
+  });
 });

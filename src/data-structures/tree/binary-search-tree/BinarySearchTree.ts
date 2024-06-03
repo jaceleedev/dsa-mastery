@@ -61,4 +61,39 @@ class BinarySearchTree<T> {
 
     return node;
   }
+
+  delete(value: T): void {
+    this.root = this.deleteNode(this.root, value);
+  }
+
+  deleteNode(node: TreeNode<T> | null, value: T): TreeNode<T> | null {
+    if (node === null) {
+      return null;
+    }
+
+    if (value < node.value) {
+      node.left = this.deleteNode(node.left, value);
+    } else if (value > node.value) {
+      node.right = this.deleteNode(node.right, value);
+    } else {
+      if (node.left === null && node.right === null) {
+        return null;
+      }
+
+      if (node.left === null) {
+        return node.right;
+      } else if (node.right === null) {
+        return node.left;
+      }
+
+      const minNode = this.findMinNode(node.right);
+
+      if (minNode !== null) {
+        node.value = minNode.value;
+        node.right = this.deleteNode(node.right, minNode.value);
+      }
+    }
+
+    return node;
+  }
 }

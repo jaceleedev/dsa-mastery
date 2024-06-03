@@ -9,3 +9,11 @@ class TreeNode<T> {
     this.value = value;
   }
 }
+
+class BinarySearchTree<T> {
+  root: TreeNode<T> | null;
+
+  constructor() {
+    this.root = null;
+  }
+}

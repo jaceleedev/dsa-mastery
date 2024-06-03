@@ -43,4 +43,22 @@ class BinarySearchTree<T> {
       }
     }
   }
+
+  search(value: T): TreeNode<T> | null {
+    return this.searchNode(this.root, value);
+  }
+
+  searchNode(node: TreeNode<T> | null, value: T): TreeNode<T> | null {
+    if (node === null) {
+      return null;
+    }
+
+    if (value < node.value) {
+      return this.searchNode(node.left, value);
+    } else if (value > node.value) {
+      return this.searchNode(node.right, value);
+    }
+
+    return node;
+  }
 }

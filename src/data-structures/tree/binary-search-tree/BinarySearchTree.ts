@@ -112,4 +112,20 @@ class BinarySearchTree<T> {
 
     return node;
   }
+
+  findMax(): TreeNode<T> | null {
+    return this.findMaxNode(this.root);
+  }
+
+  findMaxNode(node: TreeNode<T> | null): TreeNode<T> | null {
+    if (node === null) {
+      return null;
+    }
+
+    while (node.right !== null) {
+      node = node.right;
+    }
+
+    return node;
+  }
 }

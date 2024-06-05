@@ -200,4 +200,19 @@ class BinarySearchTree<T> {
 
     return result;
   }
+
+  height(): number {
+    return this.heightNode(this.root);
+  }
+
+  heightNode(node: TreeNode<T> | null): number {
+    if (node === null) {
+      return 0;
+    }
+
+    const leftHeight = this.heightNode(node.left);
+    const rightHeight = this.heightNode(node.right);
+
+    return Math.max(leftHeight, rightHeight) + 1;
+  }
 }

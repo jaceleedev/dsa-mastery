@@ -96,4 +96,20 @@ class BinarySearchTree<T> {
 
     return node;
   }
+
+  findMin(): TreeNode<T> | null {
+    return this.findMinNode(this.root);
+  }
+
+  findMinNode(node: TreeNode<T> | null): TreeNode<T> | null {
+    if (node === null) {
+      return null;
+    }
+
+    while (node.left !== null) {
+      node = node.left;
+    }
+
+    return node;
+  }
 }

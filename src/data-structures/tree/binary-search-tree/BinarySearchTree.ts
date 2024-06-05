@@ -143,4 +143,19 @@ class BinarySearchTree<T> {
       this.inOrderTraversalNode(node.right, result);
     }
   }
+
+  preOrderTraversal(): T[] {
+    const result: T[] = [];
+    this.preOrderTraversalNode(this.root, result);
+
+    return result;
+  }
+
+  preOrderTraversalNode(node: TreeNode<T> | null, result: T[]): void {
+    if (node !== null) {
+      result.push(node.value);
+      this.preOrderTraversalNode(node.left, result);
+      this.preOrderTraversalNode(node.right, result);
+    }
+  }
 }

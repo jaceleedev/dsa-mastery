@@ -66,4 +66,12 @@ describe('이진 탐색 트리', () => {
     bst.insert(1);
     expect(bst.countNodes()).toBe(8);
   });
+
+  test('k번째로 작은 요소를 찾을 수 있어야 합니다', () => {
+    expect(bst.findKthSmallest(1)).toBe(3);
+    expect(bst.findKthSmallest(3)).toBe(7);
+    expect(bst.findKthSmallest(5)).toBe(12);
+    expect(bst.findKthSmallest(7)).toBe(18);
+    expect(bst.findKthSmallest(8)).toBeNull();
+  });
 });

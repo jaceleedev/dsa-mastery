@@ -34,4 +34,8 @@ describe('이진 탐색 트리', () => {
   test('최소값을 찾을 수 있어야 합니다.', () => {
     expect(bst.findMin()?.value).toBe(3);
   });
+
+  test('최대값을 찾을 수 있어야 합니다.', () => {
+    expect(bst.findMax()?.value).toBe(18);
+  });
 });

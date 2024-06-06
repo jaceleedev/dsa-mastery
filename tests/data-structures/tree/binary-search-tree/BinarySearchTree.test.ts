@@ -23,4 +23,11 @@ describe('이진 탐색 트리', () => {
     expect(bst.search(5)?.value).toBe(5);
     expect(bst.search(20)).toBe(null);
   });
+
+  test('요소를 삭제할 수 있어야 합니다.', () => {
+    bst.delete(10);
+    expect(bst.inOrderTraversal()).toEqual([3, 5, 7, 12, 15, 18]);
+    bst.delete(3);
+    expect(bst.inOrderTraversal()).toEqual([5, 7, 12, 15, 18]);
+  });
 });

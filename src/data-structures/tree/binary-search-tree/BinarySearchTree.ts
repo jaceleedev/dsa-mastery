@@ -373,6 +373,10 @@ export class BinarySearchTree<T> {
    * @returns {TreeNode<T> | null} - 공통 조상 노드 또는 찾을 수 없는 경우 null.
    */
   findLowestCommonAncestor(value1: T, value2: T): TreeNode<T> | null {
+    if (!this.search(value1) || !this.search(value2)) {
+      return null;
+    }
+
     return this.findLCA(this.root, value1, value2);
   }
 

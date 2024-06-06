@@ -30,4 +30,8 @@ describe('이진 탐색 트리', () => {
     bst.delete(3);
     expect(bst.inOrderTraversal()).toEqual([5, 7, 12, 15, 18]);
   });
+
+  test('최소값을 찾을 수 있어야 합니다.', () => {
+    expect(bst.findMin()?.value).toBe(3);
+  });
 });

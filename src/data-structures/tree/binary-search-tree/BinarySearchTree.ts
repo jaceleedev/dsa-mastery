@@ -215,4 +215,16 @@ class BinarySearchTree<T> {
 
     return Math.max(leftHeight, rightHeight) + 1;
   }
+
+  countNodes(): number {
+    return this.countNodesNode(this.root);
+  }
+
+  countNodesNode(node: TreeNode<T> | null): number {
+    if (node === null) {
+      return 0;
+    }
+
+    return 1 + this.countNodesNode(node.left) + this.countNodesNode(node.right);
+  }
 }

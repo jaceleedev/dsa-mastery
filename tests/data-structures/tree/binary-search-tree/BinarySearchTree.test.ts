@@ -47,7 +47,11 @@ describe('이진 탐색 트리', () => {
     expect(bst.preOrderTraversal()).toEqual([10, 5, 3, 7, 15, 12, 18]);
   });
 
-  test('후위 순회를 올바르게 수행해야 합니다', () => {
+  test('후위 순회를 수행할 수 있어야 합니다', () => {
     expect(bst.postOrderTraversal()).toEqual([3, 7, 5, 12, 18, 15, 10]);
+  });
+
+  test('레벨 순회를 수행할 수 있어야 합니다', () => {
+    expect(bst.levelOrderTraversal()).toEqual([10, 5, 15, 3, 7, 12, 18]);
   });
 });

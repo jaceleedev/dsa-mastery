@@ -60,4 +60,10 @@ describe('이진 탐색 트리', () => {
     bst.insert(1);
     expect(bst.height()).toBe(4);
   });
+
+  test('노드의 갯수를 셀 수 있어야 합니다', () => {
+    expect(bst.countNodes()).toBe(7);
+    bst.insert(1);
+    expect(bst.countNodes()).toBe(8);
+  });
 });

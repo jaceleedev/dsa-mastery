@@ -54,4 +54,10 @@ describe('이진 탐색 트리', () => {
   test('레벨 순회를 수행할 수 있어야 합니다', () => {
     expect(bst.levelOrderTraversal()).toEqual([10, 5, 15, 3, 7, 12, 18]);
   });
+
+  test('높이를 계산할 수 있어야 합니다', () => {
+    expect(bst.height()).toBe(3);
+    bst.insert(1);
+    expect(bst.height()).toBe(4);
+  });
 });

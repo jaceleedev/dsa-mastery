@@ -227,4 +227,34 @@ class BinarySearchTree<T> {
 
     return 1 + this.countNodesNode(node.left) + this.countNodesNode(node.right);
   }
+
+  findKthSmallest(k: number): T | null {
+    const result = {
+      count: 0,
+      value: null,
+    };
+    this.inOrderFindKth(this.root, k, result);
+
+    return result.value;
+  }
+
+  inOrderFindKth(
+    node: TreeNode<T> | null,
+    k: number,
+    result: { count: number; value: T | null }
+  ): void {
+    if (node === null || result.count >= k) {
+      return;
+    }
+
+    this.inOrderFindKth(node.left, k, result);
+
+    ++result.count;
+    if (result.count === k) {
+      result.value = node.value;
+      return;
+    }
+
+    this.inOrderFindKth(node.right, k, result);
+  }
 }

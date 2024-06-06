@@ -1,4 +1,4 @@
-import { SinglyLinkedList } from '../../../../src/data-structures/linked-lists/singly-linked-list/SinglyLinkedList';
+import { SinglyLinkedList } from '../../../../src/data-structures/linked-list/singly-linked-list/SinglyLinkedList';
 
 describe('단일 연결 리스트', () => {
   let list: SinglyLinkedList<number>;

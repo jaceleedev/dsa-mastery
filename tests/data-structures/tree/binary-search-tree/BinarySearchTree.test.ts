@@ -38,4 +38,8 @@ describe('이진 탐색 트리', () => {
   test('최대값을 찾을 수 있어야 합니다.', () => {
     expect(bst.findMax()?.value).toBe(18);
   });
+
+  test('중위 순회를 수행할 수 있어야 합니다', () => {
+    expect(bst.inOrderTraversal()).toEqual([3, 5, 7, 10, 12, 15, 18]);
+  });
 });

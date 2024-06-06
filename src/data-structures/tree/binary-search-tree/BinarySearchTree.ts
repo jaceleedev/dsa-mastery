@@ -257,4 +257,24 @@ class BinarySearchTree<T> {
 
     this.inOrderFindKth(node.right, k, result);
   }
+
+  findLowestCommonAncestor(value1: T, value2: T): TreeNode<T> | null {
+    return this.findLCA(this.root, value1, value2);
+  }
+
+  findLCA(node: TreeNode<T> | null, value1: T, value2: T): TreeNode<T> | null {
+    if (node === null) {
+      return null;
+    }
+
+    if (node.value > value1 && node.value > value2) {
+      return this.findLCA(node.left, value1, value2);
+    }
+
+    if (node.value < value1 && node.value < value2) {
+      return this.findLCA(node.right, value1, value2);
+    }
+
+    return node;
+  }
 }

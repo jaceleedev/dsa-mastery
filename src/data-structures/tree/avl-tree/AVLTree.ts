@@ -51,4 +51,37 @@ export class AVLTree<T> {
 
     return this.balance(node);
   }
+
+  /**
+   * AVL 트리의 균형을 맞추는 함수입니다.
+   * @param {TreeNode<T>} node - 현재 노드.
+   * @returns {TreeNode<T>} - 균형 잡힌 노드.
+   */
+  balance(node: TreeNode<T>): TreeNode<T> {
+    const balanceFactor = this.getBalance(node);
+
+    // Left Left Case
+    if (balanceFactor > 1 && this.getBalance(node.left) >= 0) {
+      return this.rightRotate(node);
+    }
+
+    // Right Right Case
+    if (balanceFactor < -1 && this.getBalance(node.right) <= 0) {
+      return this.leftRotate(node);
+    }
+
+    // Left Right Case
+    if (balanceFactor > 1 && this.getBalance(node.left) < 0) {
+      node.left = this.leftRotate(node.left);
+      return this.rightRotate(node);
+    }
+
+    // Right Left Case
+    if (balanceFactor < -1 && this.getBalance(node.right) > 0) {
+      node.right = this.rightRotate(node.right);
+      return this.leftRotate(node);
+    }
+
+    return node;
+  }
 }

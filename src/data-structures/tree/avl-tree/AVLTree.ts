@@ -71,13 +71,13 @@ export class AVLTree<T> {
     }
 
     // Left Right Case
-    if (balanceFactor > 1 && this.getBalance(node.left) < 0) {
+    if (balanceFactor > 1 && node.left && this.getBalance(node.left) < 0) {
       node.left = this.leftRotate(node.left);
       return this.rightRotate(node);
     }
 
     // Right Left Case
-    if (balanceFactor < -1 && this.getBalance(node.right) > 0) {
+    if (balanceFactor < -1 && node.right && this.getBalance(node.right) > 0) {
       node.right = this.rightRotate(node.right);
       return this.leftRotate(node);
     }

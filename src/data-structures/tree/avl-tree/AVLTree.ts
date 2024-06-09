@@ -84,4 +84,24 @@ export class AVLTree<T> {
 
     return node;
   }
+
+  /**
+   * 왼쪽 회전 함수입니다.
+   * @param {TreeNode<T>} node - 회전할 노드.
+   * @returns {TreeNode<T>} - 회전된 노드.
+   */
+  leftRotate(node: TreeNode<T>): TreeNode<T> {
+    const newRoot = node.right!;
+    const temp = newRoot.left;
+
+    newRoot.left = node;
+    node.right = temp;
+
+    node.height =
+      Math.max(this.getHeight(node.left), this.getHeight(node.right)) + 1;
+    newRoot.height =
+      Math.max(this.getHeight(newRoot.left), this.getHeight(newRoot.right)) + 1;
+
+    return newRoot;
+  }
 }

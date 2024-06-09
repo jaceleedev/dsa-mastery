@@ -133,4 +133,17 @@ export class AVLTree<T> {
   getHeight(node: TreeNode<T> | null): number {
     return node ? node.height : 0;
   }
+
+  /**
+   * 노드의 균형 인수를 반환하는 도우미 함수입니다.
+   * @param {TreeNode<T>} node - 노드.
+   * @returns {number} - 균형 인수.
+   */
+  getBalance(node: TreeNode<T> | null): number {
+    if (node === null) {
+      return 0;
+    }
+
+    return this.getHeight(node.left) - this.getHeight(node.right);
+  }
 }

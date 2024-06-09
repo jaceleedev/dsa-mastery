@@ -146,4 +146,47 @@ export class AVLTree<T> {
 
     return this.getHeight(node.left) - this.getHeight(node.right);
   }
+
+  /**
+   * AVL 트리에서 값을 삭제합니다.
+   * @param {T} value - 삭제할 값.
+   */
+  delete(value: T): void {
+    this.root = this.deleteNode(this.root, value);
+  }
+
+  /**
+   * AVL 트리에서 노드를 삭제하는 도우미 함수입니다.
+   * @param {TreeNode<T> | null} node - 현재 노드.
+   * @param {T} value - 삭제할 값.
+   * @returns {TreeNode<T> | null} - 삭제된 노드를 포함하는 새 서브트리.
+   */
+  deleteNode(node: TreeNode<T> | null, value: T): TreeNode<T> | null {
+    if (node === null) {
+      return node;
+    }
+
+    if (value < node.value) {
+      node.left = this.deleteNode(node.left, value);
+    } else if (value > node.value) {
+      node.right = this.deleteNode(node.right, value);
+    } else {
+      if (node.left === null || node.right === null) {
+        node = node.left || node.right;
+      } else {
+        const minNode = this.findMinNode(node.right)!;
+        node.value = minNode.value;
+        node.right = this.deleteNode(node.right, minNode.value);
+      }
+    }
+
+    if (node === null) {
+      return node;
+    }
+
+    node.height =
+      1 + Math.max(this.getHeight(node.left), this.getHeight(node.right));
+
+    return this.balance(node);
+  }
 }

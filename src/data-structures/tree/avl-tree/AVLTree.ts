@@ -124,4 +124,13 @@ export class AVLTree<T> {
 
     return newRoot;
   }
+
+  /**
+   * 노드의 높이를 반환하는 도우미 함수입니다.
+   * @param {TreeNode<T> | null} node - 노드.
+   * @returns {number} - 노드의 높이.
+   */
+  getHeight(node: TreeNode<T> | null): number {
+    return node ? node.height : 0;
+  }
 }

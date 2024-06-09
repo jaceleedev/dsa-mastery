@@ -11,3 +11,11 @@ class TreeNode<T> {
     this.height = 1;
   }
 }
+
+export class AVLTree<T> {
+  root: TreeNode<T> | null;
+
+  constructor() {
+    this.root = null;
+  }
+}

@@ -371,4 +371,28 @@ export class AVLTree<T> {
 
     return result;
   }
+
+  /**
+   * AVL 트리의 높이를 계산합니다.
+   * @returns {number} - 트리의 높이.
+   */
+  height(): number {
+    return this.heightNode(this.root);
+  }
+
+  /**
+   * 서브트리의 높이를 계산하는 도우미 함수입니다.
+   * @param {TreeNode<T> | null} node - 현재 노드.
+   * @returns {number} - 서브트리의 높이.
+   */
+  heightNode(node: TreeNode<T> | null): number {
+    if (node === null) {
+      return 0;
+    }
+
+    const leftHeight = this.heightNode(node.left);
+    const rightHeight = this.heightNode(node.right);
+
+    return Math.max(leftHeight, rightHeight) + 1;
+  }
 }

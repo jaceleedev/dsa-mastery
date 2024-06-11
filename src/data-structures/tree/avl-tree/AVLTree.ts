@@ -457,4 +457,41 @@ export class AVLTree<T> {
 
     this.inOrderFindKth(node.right, k, result);
   }
+
+  /**
+   * AVL 트리에서 두 값의 공통 조상을 찾습니다.
+   * @param {T} value1 - 첫 번째 값.
+   * @param {T} value2 - 두 번째 값.
+   * @returns {TreeNode<T> | null} - 공통 조상 노드 또는 찾을 수 없는 경우 null.
+   */
+  findLowestCommonAncestor(value1: T, value2: T): TreeNode<T> | null {
+    if (!this.search(value1) || !this.search(value2)) {
+      return null;
+    }
+
+    return this.findLCA(this.root, value1, value2);
+  }
+
+  /**
+   * AVL 트리에서 두 값의 공통 조상을 찾는 도우미 함수입니다.
+   * @param {TreeNode<T> | null} node - 현재 노드.
+   * @param {T} value1 - 첫 번째 값.
+   * @param {T} value2 - 두 번째 값.
+   * @returns {TreeNode<T> | null} - 공통 조상 노드 또는 찾을 수 없는 경우 null.
+   */
+  findLCA(node: TreeNode<T> | null, value1: T, value2: T): TreeNode<T> | null {
+    if (node === null) {
+      return null;
+    }
+
+    if (node.value > value1 && node.value > value2) {
+      return this.findLCA(node.left, value1, value2);
+    }
+
+    if (node.value < value1 && node.value < value2) {
+      return this.findLCA(node.right, value1, value2);
+    }
+
+    return node;
+  }
 }

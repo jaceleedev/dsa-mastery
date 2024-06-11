@@ -218,4 +218,29 @@ export class AVLTree<T> {
 
     return node;
   }
+
+  /**
+   * AVL 트리에서 최소 값을 가진 노드를 찾습니다.
+   * @returns {TreeNode<T> | null} - 최소 값을 가진 노드 또는 트리가 비어 있는 경우 null.
+   */
+  findMin(): TreeNode<T> | null {
+    return this.findMinNode(this.root);
+  }
+
+  /**
+   * AVL 트리에서 최소 값을 가진 노드를 찾는 도우미 함수입니다.
+   * @param {TreeNode<T> | null} node - 현재 노드.
+   * @returns {TreeNode<T> | null} - 최소 값을 가진 노드 또는 서브트리가 비어 있는 경우 null.
+   */
+  findMinNode(node: TreeNode<T> | null): TreeNode<T> | null {
+    if (node === null) {
+      return null;
+    }
+
+    while (node.left !== null) {
+      node = node.left;
+    }
+
+    return node;
+  }
 }

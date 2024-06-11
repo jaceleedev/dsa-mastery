@@ -416,4 +416,45 @@ export class AVLTree<T> {
 
     return 1 + this.countNodesNode(node.left) + this.countNodesNode(node.right);
   }
+
+  /**
+   * AVL 트리에서 k번째로 작은 요소를 찾습니다.
+   * @param {number} k - 찾을 k번째 위치.
+   * @returns {T | null} - k번째로 작은 요소 또는 찾을 수 없는 경우 null.
+   */
+  findKthSmallest(k: number): T | null {
+    const result = {
+      count: 0,
+      value: null,
+    };
+    this.inOrderFindKth(this.root, k, result);
+
+    return result.value;
+  }
+
+  /**
+   * 중위 순회를 사용하여 k번째로 작은 요소를 찾는 도우미 함수입니다.
+   * @param {TreeNode<T> | null} node - 현재 노드.
+   * @param {number} k - 찾을 k번째 위치.
+   * @param {{ count: number; value: T | null }} result - 카운트와 값을 저장할 결과 객체.
+   */
+  inOrderFindKth(
+    node: TreeNode<T> | null,
+    k: number,
+    result: { count: number; value: T | null }
+  ): void {
+    if (node === null || result.count >= k) {
+      return;
+    }
+
+    this.inOrderFindKth(node.left, k, result);
+
+    ++result.count;
+    if (result.count === k) {
+      result.value = node.value;
+      return;
+    }
+
+    this.inOrderFindKth(node.right, k, result);
+  }
 }

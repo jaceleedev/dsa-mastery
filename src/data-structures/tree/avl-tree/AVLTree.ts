@@ -395,4 +395,25 @@ export class AVLTree<T> {
 
     return Math.max(leftHeight, rightHeight) + 1;
   }
+
+  /**
+   * AVL 트리의 총 노드 수를 계산합니다.
+   * @returns {number} - 총 노드 수.
+   */
+  countNodes(): number {
+    return this.countNodesNode(this.root);
+  }
+
+  /**
+   * 서브트리의 총 노드 수를 계산하는 도우미 함수입니다.
+   * @param {TreeNode<T> | null} node - 현재 노드.
+   * @returns {number} - 서브트리의 총 노드 수.
+   */
+  countNodesNode(node: TreeNode<T> | null): number {
+    if (node === null) {
+      return 0;
+    }
+
+    return 1 + this.countNodesNode(node.left) + this.countNodesNode(node.right);
+  }
 }

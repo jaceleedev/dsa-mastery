@@ -316,4 +316,28 @@ export class AVLTree<T> {
       this.preOrderTraversalNode(node.right, result);
     }
   }
+
+  /**
+   * AVL 트리를 후위 순회합니다.
+   * @returns {T[]} - 후위 순서의 값 배열.
+   */
+  postOrderTraversal(): T[] {
+    const result: T[] = [];
+    this.postOrderTraversalNode(this.root, result);
+
+    return result;
+  }
+
+  /**
+   * AVL 트리를 후위 순회하는 도우미 함수입니다.
+   * @param {TreeNode<T> | null} node - 현재 노드.
+   * @param {T[]} result - 값을 저장할 배열.
+   */
+  postOrderTraversalNode(node: TreeNode<T> | null, result: T[]): void {
+    if (node !== null) {
+      this.postOrderTraversalNode(node.left, result);
+      this.postOrderTraversalNode(node.right, result);
+      result.push(node.value);
+    }
+  }
 }

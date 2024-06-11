@@ -189,4 +189,33 @@ export class AVLTree<T> {
 
     return this.balance(node);
   }
+
+  /**
+   * AVL 트리에서 값을 검색합니다.
+   * @param value - 검색할 값.
+   * @returns 값을 포함하는 노드 또는 null(값이 없는 경우).
+   */
+  search(value: T): TreeNode<T> | null {
+    return this.searchNode(this.root, value);
+  }
+
+  /**
+   * AVL 트리에서 값을 검색하는 도우미 함수입니다.
+   * @param {TreeNode<T> | null} node - 현재 노드.
+   * @param {T} value - 검색할 값.
+   * @returns {TreeNode<T> | null} - 값을 포함하는 노드 또는 찾을 수 없는 경우 null.
+   */
+  searchNode(node: TreeNode<T> | null, value: T): TreeNode<T> | null {
+    if (node === null) {
+      return null;
+    }
+
+    if (value < node.value) {
+      return this.searchNode(node.left, value);
+    } else if (value > node.value) {
+      return this.searchNode(node.right, value);
+    }
+
+    return node;
+  }
 }

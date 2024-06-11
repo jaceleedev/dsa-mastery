@@ -243,4 +243,29 @@ export class AVLTree<T> {
 
     return node;
   }
+
+  /**
+   * AVL 트리에서 최대 값을 가진 노드를 찾습니다.
+   * @returns {TreeNode<T> | null} - 최대 값을 가진 노드 또는 트리가 비어 있는 경우 null.
+   */
+  findMax(): TreeNode<T> | null {
+    return this.findMaxNode(this.root);
+  }
+
+  /**
+   * AVL 트리에서 최대 값을 가진 노드를 찾는 도우미 함수입니다.
+   * @param {TreeNode<T> | null} node - 현재 노드.
+   * @returns {TreeNode<T> | null} - 최대 값을 가진 노드 또는 서브트리가 비어 있는 경우 null.
+   */
+  findMaxNode(node: TreeNode<T> | null): TreeNode<T> | null {
+    if (node === null) {
+      return null;
+    }
+
+    while (node.right !== null) {
+      node = node.right;
+    }
+
+    return node;
+  }
 }

@@ -340,4 +340,35 @@ export class AVLTree<T> {
       result.push(node.value);
     }
   }
+
+  /**
+   * AVL 트리를 레벨 순서로 순회합니다 (너비 우선 순회).
+   * @returns {T[]} - 레벨 순서의 값 배열.
+   */
+  levelOrderTraversal(): T[] {
+    const result: T[] = [];
+    const queue: (TreeNode<T> | null)[] = [];
+
+    if (this.root !== null) {
+      queue.push(this.root);
+    }
+
+    while (queue.length > 0) {
+      const node = queue.shift();
+
+      if (node != null) {
+        result.push(node.value);
+
+        if (node.left !== null) {
+          queue.push(node.left);
+        }
+
+        if (node.right !== null) {
+          queue.push(node.right);
+        }
+      }
+    }
+
+    return result;
+  }
 }

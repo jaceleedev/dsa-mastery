@@ -30,4 +30,8 @@ describe('AVL 트리', () => {
     avl.delete(3);
     expect(avl.inOrderTraversal()).toEqual([5, 7, 12, 15, 18]);
   });
+
+  test('최소값을 찾을 수 있어야 합니다.', () => {
+    expect(avl.findMin()?.value).toBe(3);
+  });
 });

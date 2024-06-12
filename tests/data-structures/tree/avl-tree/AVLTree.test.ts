@@ -23,4 +23,11 @@ describe('AVL 트리', () => {
     expect(avl.search(5)?.value).toBe(5);
     expect(avl.search(20)).toBe(null);
   });
+
+  test('요소를 삭제할 수 있어야 합니다.', () => {
+    avl.delete(10);
+    expect(avl.inOrderTraversal()).toEqual([3, 5, 7, 12, 15, 18]);
+    avl.delete(3);
+    expect(avl.inOrderTraversal()).toEqual([5, 7, 12, 15, 18]);
+  });
 });

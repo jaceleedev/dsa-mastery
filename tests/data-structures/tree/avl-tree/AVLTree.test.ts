@@ -17,4 +17,10 @@ describe('AVL 트리', () => {
   test('요소를 삽입할 수 있어야 합니다', () => {
     expect(avl.inOrderTraversal()).toEqual([3, 5, 7, 10, 12, 15, 18]);
   });
+
+  test('요소를 검색할 수 있어야 합니다', () => {
+    expect(avl.search(10)?.value).toBe(10);
+    expect(avl.search(5)?.value).toBe(5);
+    expect(avl.search(20)).toBe(null);
+  });
 });

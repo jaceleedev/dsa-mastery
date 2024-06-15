@@ -46,4 +46,8 @@ describe('AVL 트리', () => {
   test('전위 순회를 수행할 수 있어야 합니다', () => {
     expect(avl.preOrderTraversal()).toEqual([10, 5, 3, 7, 15, 12, 18]);
   });
+
+  test('후위 순회를 수행할 수 있어야 합니다', () => {
+    expect(avl.postOrderTraversal()).toEqual([3, 7, 5, 12, 18, 15, 10]);
+  });
 });

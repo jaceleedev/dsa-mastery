@@ -108,4 +108,13 @@ describe('AVL 트리', () => {
     expect(avlLL.inOrderTraversal()).toEqual([10, 20, 30]);
     expect(avlLL.levelOrderTraversal()).toEqual([20, 10, 30]);
   });
+
+  test('Right-Left 케이스에서, Right-Left 회전을 해야 합니다', () => {
+    const avlLL = new AVLTree<number>();
+    avlLL.insert(10);
+    avlLL.insert(30);
+    avlLL.insert(20);
+    expect(avlLL.inOrderTraversal()).toEqual([10, 20, 30]);
+    expect(avlLL.levelOrderTraversal()).toEqual([20, 10, 30]);
+  });
 });

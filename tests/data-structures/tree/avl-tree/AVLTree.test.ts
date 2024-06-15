@@ -66,4 +66,12 @@ describe('AVL 트리', () => {
     avl.insert(1);
     expect(avl.countNodes()).toBe(8);
   });
+
+  test('k번째로 작은 요소를 찾을 수 있어야 합니다', () => {
+    expect(avl.findKthSmallest(1)).toBe(3);
+    expect(avl.findKthSmallest(3)).toBe(7);
+    expect(avl.findKthSmallest(5)).toBe(12);
+    expect(avl.findKthSmallest(7)).toBe(18);
+    expect(avl.findKthSmallest(8)).toBeNull();
+  });
 });

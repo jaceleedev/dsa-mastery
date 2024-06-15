@@ -54,4 +54,10 @@ describe('AVL 트리', () => {
   test('레벨 순회를 수행할 수 있어야 합니다', () => {
     expect(avl.levelOrderTraversal()).toEqual([10, 5, 15, 3, 7, 12, 18]);
   });
+
+  test('높이를 계산할 수 있어야 합니다', () => {
+    expect(avl.height()).toBe(3);
+    avl.insert(1);
+    expect(avl.height()).toBe(4);
+  });
 });

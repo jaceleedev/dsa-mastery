@@ -81,4 +81,13 @@ describe('AVL 트리', () => {
     expect(avl.findLowestCommonAncestor(12, 18)?.value).toBe(15);
     expect(avl.findLowestCommonAncestor(3, 100)).toBeNull();
   });
+
+  test('Left-Left 케이스에서, Right 회전을 해야 합니다.', () => {
+    const avlLL = new AVLTree<number>();
+    avlLL.insert(30);
+    avlLL.insert(20);
+    avlLL.insert(10);
+    expect(avlLL.inOrderTraversal()).toEqual([10, 20, 30]);
+    expect(avlLL.levelOrderTraversal()).toEqual([20, 10, 30]);
+  });
 });

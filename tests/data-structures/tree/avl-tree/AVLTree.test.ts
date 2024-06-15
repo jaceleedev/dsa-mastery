@@ -50,4 +50,8 @@ describe('AVL 트리', () => {
   test('후위 순회를 수행할 수 있어야 합니다', () => {
     expect(avl.postOrderTraversal()).toEqual([3, 7, 5, 12, 18, 15, 10]);
   });
+
+  test('레벨 순회를 수행할 수 있어야 합니다', () => {
+    expect(avl.levelOrderTraversal()).toEqual([10, 5, 15, 3, 7, 12, 18]);
+  });
 });

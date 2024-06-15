@@ -60,4 +60,10 @@ describe('AVL 트리', () => {
     avl.insert(1);
     expect(avl.height()).toBe(4);
   });
+
+  test('노드의 갯수를 셀 수 있어야 합니다', () => {
+    expect(avl.countNodes()).toBe(7);
+    avl.insert(1);
+    expect(avl.countNodes()).toBe(8);
+  });
 });

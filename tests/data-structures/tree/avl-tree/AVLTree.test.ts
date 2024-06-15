@@ -74,4 +74,11 @@ describe('AVL 트리', () => {
     expect(avl.findKthSmallest(7)).toBe(18);
     expect(avl.findKthSmallest(8)).toBeNull();
   });
+
+  test('가장 가까운 공통 조상을 찾을 수 있어야 합니다', () => {
+    expect(avl.findLowestCommonAncestor(3, 7)?.value).toBe(5);
+    expect(avl.findLowestCommonAncestor(3, 15)?.value).toBe(10);
+    expect(avl.findLowestCommonAncestor(12, 18)?.value).toBe(15);
+    expect(avl.findLowestCommonAncestor(3, 100)).toBeNull();
+  });
 });

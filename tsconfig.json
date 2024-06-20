@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ES6", // JavaScript 버전
+    "target": "ES2022", // JavaScript 버전
     "module": "commonjs", // 모듈 시스템
     "strict": true, // 모든 엄격한 타입-검사 옵션 활성화
     "esModuleInterop": true, // CommonJS와 ES 모듈 간의 호환성 보장

@@ -65,4 +65,13 @@ export class MinHeap<T> {
   clear() {
     this.heap = [];
   }
+
+  /**
+   * 특정 값이 힙에 있는지 확인합니다.
+   * @param {T} value - 확인할 값.
+   * @returns {boolean} - 값이 힙에 있으면 true, 그렇지 않으면 false.
+   */
+  contains(value: T): boolean {
+    return this.heap.includes(value);
+  }
 }

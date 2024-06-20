@@ -126,4 +126,25 @@ export class MinHeap<T> {
 
     return array;
   }
+
+  /**
+   * 힙의 유효성을 검사합니다.
+   * @returns {boolean} - 힙이 유효하면 true, 그렇지 않으면 false.
+   */
+  isValidHeap(): boolean {
+    for (let i = 0; i < this.heap.length; ++i) {
+      const left = this.getLeftChildIndex(i);
+      const right = this.getRightChildIndex(i);
+
+      if (left < this.heap.length && this.heap[i] > this.heap[left]) {
+        return false;
+      }
+
+      if (right < this.heap.length && this.heap[i] > this.heap[right]) {
+        return false;
+      }
+    }
+
+    return true;
+  }
 }

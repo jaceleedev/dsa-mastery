@@ -33,4 +33,12 @@ export class MinHeap<T> {
 
     return min;
   }
+
+  /**
+   * 힙의 최소값을 제거하지 않고 반환합니다.
+   * @returns {T | null} - 힙의 최소값 또는 null (힙이 비어 있는 경우).
+   */
+  peek(): T | null {
+    return this.heap.length !== 0 ? this.heap[0] : null;
+  }
 }

@@ -15,6 +15,26 @@ export class MinHeap<T> {
   }
 
   /**
+   * 특정 위치의 값을 업데이트하고 힙 속성을 유지합니다.
+   * @param {number} index - 값을 업데이트할 요소의 인덱스.
+   * @param {T} value - 업데이트할 값.
+   */
+  updateAt(index: number, value: T): void {
+    if (index < 0 || index >= this.heap.length) {
+      throw new Error('Index out of bounds');
+    }
+
+    const oldValue = this.heap[index];
+    this.heap[index] = value;
+
+    if (value < oldValue) {
+      this.heapifyUp(index);
+    } else {
+      this.heapifyDown(index);
+    }
+  }
+
+  /**
    * 힙에서 최소값을 제거하고 반환합니다.
    * @returns {T | null} - 힙에서 제거된 최소값 또는 null (힙이 비어 있는 경우).
    */

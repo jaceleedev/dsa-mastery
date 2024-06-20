@@ -224,4 +224,33 @@ export class MinHeap<T> {
       index = this.getParentIndex(index);
     }
   }
+
+  /**
+   * 힙 속성을 유지하도록 하향 조정합니다.
+   * @param {number} [index=0] - 시작 인덱스 (기본값은 0).
+   * @param {number} [length=this.heap.length] - 하향 조정을 수행할 범위 길이 (기본값은 힙의 길이).
+   */
+  heapifyDown(index: number = 0, length: number = this.heap.length): void {
+    while (this.getLeftChildIndex(index) < length) {
+      let smallChildIndex = this.getLeftChildIndex(index);
+      let rightChildIndex = this.getRightChildIndex(index);
+
+      if (
+        rightChildIndex < length &&
+        this.heap[rightChildIndex] < this.heap[smallChildIndex]
+      ) {
+        smallChildIndex = rightChildIndex;
+      }
+
+      if (this.heap[index] < this.heap[smallChildIndex]) {
+        break;
+      }
+
+      const temp = this.heap[index];
+      this.heap[index] = this.heap[smallChildIndex];
+      this.heap[smallChildIndex] = temp;
+
+      index = smallChildIndex;
+    }
+  }
 }

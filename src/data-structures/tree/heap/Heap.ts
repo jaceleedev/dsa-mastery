@@ -94,4 +94,12 @@ export class MinHeap<T> {
       this.heapifyDown(i);
     }
   }
+
+  /**
+   * 힙의 현재 크기를 반환합니다.
+   * @returns {number} - 힙의 크기.
+   */
+  size(): number {
+    return this.heap.length;
+  }
 }

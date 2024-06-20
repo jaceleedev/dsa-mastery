@@ -58,4 +58,11 @@ export class MinHeap<T> {
 
     return min;
   }
+
+  /**
+   * 힙을 비웁니다. 모든 요소를 제거합니다.
+   */
+  clear() {
+    this.heap = [];
+  }
 }

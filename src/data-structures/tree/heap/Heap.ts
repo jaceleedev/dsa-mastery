@@ -263,4 +263,26 @@ export class MinHeap<T> {
       this.insert(value);
     }
   }
+
+  /**
+   * k번째 최소값 찾기
+   * @param {number} k - k번째 최소값의 순서.
+   * @returns {T | null} - k번째 최소값 또는 null (유효하지 않은 k 값의 경우).
+   */
+  findKthSmallest(k: number): T | null {
+    if (k <= 0 || k > this.heap.length) {
+      throw new Error('Invalid value of k');
+    }
+
+    const tempHeap = new MinHeap<T>();
+    tempHeap.buildHeap([...this.heap]);
+
+    let kthSmallest: T | null = null;
+
+    for (let i = 0; i < k; ++i) {
+      kthSmallest = tempHeap.poll();
+    }
+
+    return kthSmallest;
+  }
 }

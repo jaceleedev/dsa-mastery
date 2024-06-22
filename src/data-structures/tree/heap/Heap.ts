@@ -253,4 +253,14 @@ export class MinHeap<T> {
       index = smallChildIndex;
     }
   }
+
+  /**
+   * 병합 기능: 다른 힙을 현재 힙과 병합합니다.
+   * @param {MinHeap<T>} otherHeap - 병합할 다른 힙.
+   */
+  merge(otherHeap: MinHeap<T>): void {
+    for (const value of otherHeap.toArray()) {
+      this.insert(value);
+    }
+  }
 }

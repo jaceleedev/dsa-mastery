@@ -74,4 +74,21 @@ export class MaxHeap<T> {
   peek(): T | null {
     return this.heap.length !== 0 ? this.heap[0] : null;
   }
+
+  /**
+   * 힙의 루트 노드를 새로운 값으로 교체하고 힙 속성을 유지합니다.
+   * @param {T} value - 교체할 새로운 값.
+   * @returns {T | null} - 교체된 이전 최대값 또는 null (힙이 비어 있는 경우).
+   */
+  replaceRoot(value: T): T | null {
+    if (this.heap.length === 0) {
+      return null;
+    }
+
+    const max = this.heap[0];
+    this.heap[0] = value;
+    this.heapifyDown();
+
+    return max;
+  }
 }

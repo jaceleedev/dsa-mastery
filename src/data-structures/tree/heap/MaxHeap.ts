@@ -66,4 +66,12 @@ export class MaxHeap<T> {
 
     return max;
   }
+
+  /**
+   * 힙의 최대값을 제거하지 않고 반환합니다.
+   * @returns {T | null} - 힙의 최대값 또는 null (힙이 비어 있는 경우).
+   */
+  peek(): T | null {
+    return this.heap.length !== 0 ? this.heap[0] : null;
+  }
 }

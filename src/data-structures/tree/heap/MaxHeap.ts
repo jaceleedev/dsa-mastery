@@ -107,4 +107,12 @@ export class MaxHeap<T> {
   contains(value: T): boolean {
     return this.heap.includes(value);
   }
+
+  /**
+   * 힙의 요소를 배열로 반환합니다.
+   * @returns {T[]} - 힙의 요소를 담은 배열.
+   */
+  toArray(): T[] {
+    return [...this.heap];
+  }
 }

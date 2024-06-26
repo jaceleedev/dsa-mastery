@@ -180,4 +180,13 @@ export class MaxHeap<T> {
 
     return true;
   }
+
+  /**
+   * 부모 노드 인덱스를 반환합니다.
+   * @param {number} index - 현재 노드 인덱스.
+   * @returns {number} - 부모 노드 인덱스.
+   */
+  getParentIndex(index: number): number {
+    return Math.floor((index - 1) / 2);
+  }
 }

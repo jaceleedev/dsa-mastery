@@ -282,4 +282,12 @@ export class MaxHeap<T> {
 
     return kthLargest;
   }
+
+  /**
+   * 힙의 요소를 레벨 순서로 순회하여 반환합니다.
+   * @returns {T[]} - 레벨 순서로 정렬된 힙의 요소 배열.
+   */
+  levelOrderTraversal(): T[] {
+    return this.toArray();
+  }
 }

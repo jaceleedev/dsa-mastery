@@ -260,4 +260,26 @@ export class MaxHeap<T> {
       this.insert(value);
     }
   }
+
+  /**
+   * k번째 최대값 찾기
+   * @param {number} k - k번째 최대값의 순서.
+   * @returns {T | null} - k번째 최대값 또는 null (유효하지 않은 k 값의 경우).
+   */
+  findKthLargest(k: number): T | null {
+    if (k <= 0 || k > this.heap.length) {
+      throw new Error('Invalid value of k');
+    }
+
+    const tempHeap = new MaxHeap<T>();
+    tempHeap.buildHeap([...this.heap]);
+
+    let kthLargest: T | null = null;
+
+    for (let i = 0; i < k; ++i) {
+      kthLargest = tempHeap.poll();
+    }
+
+    return kthLargest;
+  }
 }

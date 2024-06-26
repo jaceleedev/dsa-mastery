@@ -207,4 +207,21 @@ export class MaxHeap<T> {
   getRightChildIndex(index: number): number {
     return 2 * index + 2;
   }
+
+  /**
+   * 힙 속성을 유지하도록 상향 조정합니다.
+   * @param {number} [index=this.heap.length - 1] - 상향 조정을 시작할 인덱스 (기본값은 마지막 요소).
+   */
+  heapifyUp(index: number = this.heap.length - 1): void {
+    while (
+      index > 0 &&
+      this.heap[this.getParentIndex(index)] < this.heap[index]
+    ) {
+      const temp = this.heap[this.getParentIndex(index)];
+      this.heap[this.getParentIndex(index)] = this.heap[index];
+      this.heap[index] = temp;
+
+      index = this.getParentIndex(index);
+    }
+  }
 }

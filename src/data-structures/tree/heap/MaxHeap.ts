@@ -91,4 +91,11 @@ export class MaxHeap<T> {
 
     return max;
   }
+
+  /**
+   * 힙을 비웁니다. 모든 요소를 제거합니다.
+   */
+  clear(): void {
+    this.heap = [];
+  }
 }

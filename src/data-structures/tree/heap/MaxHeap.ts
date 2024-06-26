@@ -198,4 +198,13 @@ export class MaxHeap<T> {
   getLeftChildIndex(index: number): number {
     return 2 * index + 1;
   }
+
+  /**
+   * 오른쪽 자식 노드 인덱스를 반환합니다.
+   * @param {number} index - 현재 노드 인덱스.
+   * @returns {number} - 오른쪽 자식 노드 인덱스.
+   */
+  getRightChildIndex(index: number): number {
+    return 2 * index + 2;
+  }
 }

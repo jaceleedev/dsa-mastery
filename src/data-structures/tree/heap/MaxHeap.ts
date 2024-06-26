@@ -224,4 +224,30 @@ export class MaxHeap<T> {
       index = this.getParentIndex(index);
     }
   }
+
+  /**
+   * 힙 속성을 유지하도록 하향 조정합니다.
+   * @param {number} [index=0] - 시작 인덱스 (기본값은 0).
+   * @param {number} [length=this.heap.length] - 하향 조정을 수행할 범위 길이 (기본값은 힙의 길이).
+   */
+  heapifyDown(index: number = 0, length: number = this.heap.length) {
+    while (this.getLeftChildIndex(index) < length) {
+      let largeChildIndex = this.getLeftChildIndex(index);
+      let rightChildIndex = this.getRightChildIndex(index);
+
+      if (this.heap[largeChildIndex] < this.heap[rightChildIndex]) {
+        largeChildIndex = rightChildIndex;
+      }
+
+      if (this.heap[index] > this.heap[largeChildIndex]) {
+        break;
+      }
+
+      const temp = this.heap[largeChildIndex];
+      this.heap[largeChildIndex] = this.heap[index];
+      this.heap[index] = temp;
+
+      index = largeChildIndex;
+    }
+  }
 }

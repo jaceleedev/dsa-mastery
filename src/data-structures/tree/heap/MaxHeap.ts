@@ -250,4 +250,14 @@ export class MaxHeap<T> {
       index = largeChildIndex;
     }
   }
+
+  /**
+   * 병합 기능: 다른 힙을 현재 힙과 병합합니다.
+   * @param {MaxHeap<T>} otherHeap - 병합할 다른 힙.
+   */
+  merge(otherHeap: MaxHeap<T>): void {
+    for (const value of otherHeap.toArray()) {
+      this.insert(value);
+    }
+  }
 }

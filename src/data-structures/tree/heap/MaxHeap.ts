@@ -135,4 +135,12 @@ export class MaxHeap<T> {
   size(): number {
     return this.heap.length;
   }
+
+  /**
+   * 힙이 비어 있는지 확인합니다.
+   * @returns {boolean} - 힙이 비어 있으면 true, 그렇지 않으면 false.
+   */
+  isEmpty(): boolean {
+    return this.heap.length === 0;
+  }
 }

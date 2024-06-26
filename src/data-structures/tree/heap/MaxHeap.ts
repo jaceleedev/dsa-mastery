@@ -143,4 +143,20 @@ export class MaxHeap<T> {
   isEmpty(): boolean {
     return this.heap.length === 0;
   }
+
+  /**
+   * 힙 정렬을 수행하여 배열을 내림차순으로 정렬합니다.
+   * @param {T[]} array - 정렬할 배열.
+   * @returns {T[]} - 정렬된 배열.
+   */
+  heapSort(array: T[]): T[] {
+    this.buildHeap(array);
+
+    for (let i = array.length - 1; i >= 0; --i) {
+      [array[0], array[i]] = [array[i], array[0]];
+      this.heapifyDown(0, i);
+    }
+
+    return array;
+  }
 }

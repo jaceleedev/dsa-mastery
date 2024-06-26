@@ -115,4 +115,16 @@ export class MaxHeap<T> {
   toArray(): T[] {
     return [...this.heap];
   }
+
+  /**
+   * 주어진 배열로 힙을 생성합니다.
+   * @param {T[]} array - 힙으로 만들 배열.
+   */
+  buildHeap(array: T[]) {
+    this.heap = array;
+
+    for (let i = Math.floor(this.heap.length / 2); i >= 0; --i) {
+      this.heapifyDown(i);
+    }
+  }
 }

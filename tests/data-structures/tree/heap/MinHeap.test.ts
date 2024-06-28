@@ -31,4 +31,11 @@ describe('최소 힙', () => {
     minHeap.deleteAt(1);
     expect(minHeap.toArray()).toEqual([3, 7, 12, 10, 18, 15]);
   });
+
+  test('최소값(root)를 제거하고 반환할 수 있어야 합니다', () => {
+    expect(minHeap.poll()).toBe(3);
+    expect(minHeap.toArray()).toEqual([5, 7, 12, 10, 18, 15]);
+    expect(minHeap.poll()).toBe(5);
+    expect(minHeap.toArray()).toEqual([7, 10, 12, 15, 18]);
+  });
 });

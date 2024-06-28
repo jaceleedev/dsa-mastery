@@ -90,4 +90,12 @@ describe('최소 힙', () => {
   test('힙의 요소를 레벨 순서로 순회하여 반환할 수 있어야 합니다', () => {
     expect(minHeap.levelOrderTraversal()).toEqual([3, 5, 12, 10, 7, 15, 18]);
   });
+
+  test('다른 힙을 현재 힙과 병합할 수 있어야 합니다', () => {
+    const otherHeap = new MinHeap<number>();
+    otherHeap.insert(2);
+    otherHeap.insert(14);
+    minHeap.merge(otherHeap);
+    expect(minHeap.toArray()).toEqual([2, 3, 12, 5, 7, 15, 18, 10, 14]);
+  });
 });

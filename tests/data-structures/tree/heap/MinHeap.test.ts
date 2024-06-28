@@ -64,4 +64,8 @@ describe('최소 힙', () => {
     minHeap.buildHeap([8, 4, 9, 2, 6, 1, 7]);
     expect(minHeap.toArray()).toEqual([1, 2, 7, 4, 6, 9, 8]);
   });
+
+  test('힙의 현재 크기를 반환할 수 있어야 합니다', () => {
+    expect(minHeap.size()).toBe(7);
+  });
 });

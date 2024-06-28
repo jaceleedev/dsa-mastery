@@ -54,4 +54,9 @@ describe('최소 힙', () => {
     minHeap.clear();
     expect(minHeap.toArray()).toEqual([]);
   });
+
+  test('힙에 특정 요소가 있는지 확인할 수 있어야 합니다', () => {
+    expect(minHeap.contains(10)).toBe(true);
+    expect(minHeap.contains(20)).toBe(false);
+  });
 });

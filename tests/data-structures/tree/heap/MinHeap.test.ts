@@ -26,4 +26,9 @@ describe('최소 힙', () => {
     minHeap.updateAt(0, 20);
     expect(minHeap.toArray()).toEqual([3, 5, 15, 10, 7, 20, 18]);
   });
+
+  test('지정된 인덱스의 요소를 삭제할 수 있어야 합니다', () => {
+    minHeap.deleteAt(1);
+    expect(minHeap.toArray()).toEqual([3, 7, 12, 10, 18, 15]);
+  });
 });

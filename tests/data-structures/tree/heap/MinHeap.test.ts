@@ -38,4 +38,8 @@ describe('최소 힙', () => {
     expect(minHeap.poll()).toBe(5);
     expect(minHeap.toArray()).toEqual([7, 10, 12, 15, 18]);
   });
+
+  test('최소값(root)를 제거하지 않고 반환할 수 있어야 합니다', () => {
+    expect(minHeap.peek()).toBe(3);
+  });
 });

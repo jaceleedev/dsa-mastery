@@ -73,4 +73,10 @@ describe('최소 힙', () => {
     const array = [8, 4, 9, 2, 6, 1, 7];
     expect(minHeap.heapSort(array)).toEqual([1, 2, 4, 6, 7, 8, 9]);
   });
+
+  test('힙의 유효성을 검사할 수 있어야 합니다', () => {
+    expect(minHeap.isValidHeap()).toBe(true);
+    minHeap.heap[0] = 20;
+    expect(minHeap.isValidHeap()).toBe(false);
+  });
 });

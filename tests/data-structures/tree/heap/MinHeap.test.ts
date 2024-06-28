@@ -42,4 +42,11 @@ describe('최소 힙', () => {
   test('최소값(root)를 제거하지 않고 반환할 수 있어야 합니다', () => {
     expect(minHeap.peek()).toBe(3);
   });
+
+  test('최소값(root)를 새로운 값으로 교체하고 반환할 수 있어야 합니다', () => {
+    expect(minHeap.replaceRoot(2)).toBe(3);
+    expect(minHeap.toArray()).toEqual([2, 5, 12, 10, 7, 15, 18]);
+    expect(minHeap.replaceRoot(20)).toBe(2);
+    expect(minHeap.toArray()).toEqual([5, 7, 12, 10, 20, 15, 18]);
+  });
 });

@@ -49,4 +49,9 @@ describe('최소 힙', () => {
     expect(minHeap.replaceRoot(20)).toBe(2);
     expect(minHeap.toArray()).toEqual([5, 7, 12, 10, 20, 15, 18]);
   });
+
+  test('힙을 비울 수 있어야 합니다', () => {
+    minHeap.clear();
+    expect(minHeap.toArray()).toEqual([]);
+  });
 });

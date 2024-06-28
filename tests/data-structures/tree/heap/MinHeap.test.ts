@@ -59,4 +59,9 @@ describe('최소 힙', () => {
     expect(minHeap.contains(10)).toBe(true);
     expect(minHeap.contains(20)).toBe(false);
   });
+
+  test('주어진 배열로 힙을 생성할 수 있어야 합니다', () => {
+    minHeap.buildHeap([8, 4, 9, 2, 6, 1, 7]);
+    expect(minHeap.toArray()).toEqual([1, 2, 7, 4, 6, 9, 8]);
+  });
 });

@@ -19,4 +19,11 @@ describe('최소 힙', () => {
     minHeap.insert(20);
     expect(minHeap.toArray()).toEqual([1, 3, 12, 5, 7, 15, 18, 10, 20]);
   });
+
+  test('지정된 인덱스의 요소를 업데이트 할 수 있어야 합니다', () => {
+    minHeap.updateAt(2, 1);
+    expect(minHeap.toArray()).toEqual([1, 5, 3, 10, 7, 15, 18]);
+    minHeap.updateAt(0, 20);
+    expect(minHeap.toArray()).toEqual([3, 5, 15, 10, 7, 20, 18]);
+  });
 });

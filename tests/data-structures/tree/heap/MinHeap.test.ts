@@ -79,4 +79,11 @@ describe('최소 힙', () => {
     minHeap.heap[0] = 20;
     expect(minHeap.isValidHeap()).toBe(false);
   });
+
+  test('k번째 최소값을 찾을 수 있어야 합니다', () => {
+    expect(minHeap.findKthSmallest(1)).toBe(3);
+    expect(minHeap.findKthSmallest(3)).toBe(7);
+    expect(minHeap.findKthSmallest(5)).toBe(12);
+    expect(() => minHeap.findKthSmallest(0)).toThrow('Invalid value of k');
+  });
 });

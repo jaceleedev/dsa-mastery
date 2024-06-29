@@ -42,4 +42,11 @@ describe('최대 힙', () => {
   test('최대값(root)를 제거하지 않고 반환할 수 있어야 합니다', () => {
     expect(maxHeap.peek()).toBe(18);
   });
+
+  test('최대값(root)를 새로운 값으로 교체하고 반환할 수 있어야 합니다', () => {
+    expect(maxHeap.replaceRoot(20)).toBe(18);
+    expect(maxHeap.toArray()).toEqual([20, 7, 15, 3, 5, 10, 12]);
+    expect(maxHeap.replaceRoot(1)).toBe(20);
+    expect(maxHeap.toArray()).toEqual([15, 7, 12, 3, 5, 10, 1]);
+  });
 });

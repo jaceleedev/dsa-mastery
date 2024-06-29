@@ -68,4 +68,9 @@ describe('최대 힙', () => {
   test('힙의 현재 크기를 반환할 수 있어야 합니다', () => {
     expect(maxHeap.size()).toBe(7);
   });
+
+  test('힙 정렬을 수행하여 배열을 내림차순으로 정렬할 수 있어야 합니다', () => {
+    const array = [8, 4, 9, 2, 6, 1, 7];
+    expect(maxHeap.heapSort(array)).toEqual([9, 8, 7, 6, 4, 2, 1]);
+  });
 });

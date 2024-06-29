@@ -38,4 +38,8 @@ describe('최대 힙', () => {
     expect(maxHeap.poll()).toBe(15);
     expect(maxHeap.toArray()).toEqual([12, 7, 10, 3, 5]);
   });
+
+  test('최대값(root)를 제거하지 않고 반환할 수 있어야 합니다', () => {
+    expect(maxHeap.peek()).toBe(18);
+  });
 });

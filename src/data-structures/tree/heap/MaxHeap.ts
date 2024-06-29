@@ -150,14 +150,14 @@ export class MaxHeap<T> {
    * @returns {T[]} - 정렬된 배열.
    */
   heapSort(array: T[]): T[] {
+    const result: T[] = [];
     this.buildHeap(array);
 
-    for (let i = array.length - 1; i >= 0; --i) {
-      [array[0], array[i]] = [array[i], array[0]];
-      this.heapifyDown(0, i);
+    while (!this.isEmpty()) {
+      result.push(this.poll()!);
     }
 
-    return array;
+    return result;
   }
 
   /**
@@ -235,7 +235,10 @@ export class MaxHeap<T> {
       let largeChildIndex = this.getLeftChildIndex(index);
       let rightChildIndex = this.getRightChildIndex(index);
 
-      if (this.heap[largeChildIndex] < this.heap[rightChildIndex]) {
+      if (
+        rightChildIndex < length &&
+        this.heap[largeChildIndex] < this.heap[rightChildIndex]
+      ) {
         largeChildIndex = rightChildIndex;
       }
 

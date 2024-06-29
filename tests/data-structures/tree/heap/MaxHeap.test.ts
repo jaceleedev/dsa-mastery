@@ -86,4 +86,8 @@ describe('최대 힙', () => {
     expect(maxHeap.findKthLargest(5)).toBe(7);
     expect(() => maxHeap.findKthLargest(0)).toThrow('Invalid value of k');
   });
+
+  test('힙의 요소를 레벨 순서로 순회하여 반환할 수 있어야 합니다', () => {
+    expect(maxHeap.levelOrderTraversal()).toEqual([18, 7, 15, 3, 5, 10, 12]);
+  });
 });

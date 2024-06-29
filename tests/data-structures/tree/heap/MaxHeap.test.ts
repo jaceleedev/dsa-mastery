@@ -64,4 +64,8 @@ describe('최대 힙', () => {
     maxHeap.buildHeap([8, 4, 9, 2, 6, 1, 7]);
     expect(maxHeap.toArray()).toEqual([9, 6, 8, 2, 4, 1, 7]);
   });
+
+  test('힙의 현재 크기를 반환할 수 있어야 합니다', () => {
+    expect(maxHeap.size()).toBe(7);
+  });
 });

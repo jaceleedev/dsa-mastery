@@ -26,4 +26,9 @@ describe('최대 힙', () => {
     maxHeap.updateAt(0, 1);
     expect(maxHeap.toArray()).toEqual([18, 7, 12, 3, 5, 10, 1]);
   });
+
+  test('지정된 인덱스의 요소를 삭제할 수 있어야 합니다', () => {
+    maxHeap.deleteAt(1);
+    expect(maxHeap.toArray()).toEqual([18, 12, 15, 3, 5, 10]);
+  });
 });

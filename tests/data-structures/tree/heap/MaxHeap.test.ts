@@ -79,4 +79,11 @@ describe('최대 힙', () => {
     maxHeap.heap[0] = 1;
     expect(maxHeap.isValidHeap()).toBe(false);
   });
+
+  test('k번째 최대값을 찾을 수 있어야 합니다', () => {
+    expect(maxHeap.findKthLargest(1)).toBe(18);
+    expect(maxHeap.findKthLargest(3)).toBe(12);
+    expect(maxHeap.findKthLargest(5)).toBe(7);
+    expect(() => maxHeap.findKthLargest(0)).toThrow('Invalid value of k');
+  });
 });

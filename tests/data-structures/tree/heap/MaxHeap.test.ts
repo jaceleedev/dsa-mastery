@@ -90,4 +90,12 @@ describe('최대 힙', () => {
   test('힙의 요소를 레벨 순서로 순회하여 반환할 수 있어야 합니다', () => {
     expect(maxHeap.levelOrderTraversal()).toEqual([18, 7, 15, 3, 5, 10, 12]);
   });
+
+  test('다른 힙을 현재 힙과 병합할 수 있어야 합니다', () => {
+    const otherHeap = new MaxHeap<number>();
+    otherHeap.insert(2);
+    otherHeap.insert(14);
+    maxHeap.merge(otherHeap);
+    expect(maxHeap.toArray()).toEqual([18, 14, 15, 7, 5, 10, 12, 3, 2]);
+  });
 });

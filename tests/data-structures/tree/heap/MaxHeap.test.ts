@@ -73,4 +73,10 @@ describe('최대 힙', () => {
     const array = [8, 4, 9, 2, 6, 1, 7];
     expect(maxHeap.heapSort(array)).toEqual([9, 8, 7, 6, 4, 2, 1]);
   });
+
+  test('힙의 유효성을 검사할 수 있어야 합니다', () => {
+    expect(maxHeap.isValidHeap()).toBe(true);
+    maxHeap.heap[0] = 1;
+    expect(maxHeap.isValidHeap()).toBe(false);
+  });
 });

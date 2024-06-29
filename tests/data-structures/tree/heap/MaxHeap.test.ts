@@ -31,4 +31,11 @@ describe('최대 힙', () => {
     maxHeap.deleteAt(1);
     expect(maxHeap.toArray()).toEqual([18, 12, 15, 3, 5, 10]);
   });
+
+  test('최대값(root)를 제거하고 반환할 수 있어야 합니다', () => {
+    expect(maxHeap.poll()).toBe(18);
+    expect(maxHeap.toArray()).toEqual([15, 7, 12, 3, 5, 10]);
+    expect(maxHeap.poll()).toBe(15);
+    expect(maxHeap.toArray()).toEqual([12, 7, 10, 3, 5]);
+  });
 });

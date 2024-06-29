@@ -49,4 +49,9 @@ describe('최대 힙', () => {
     expect(maxHeap.replaceRoot(1)).toBe(20);
     expect(maxHeap.toArray()).toEqual([15, 7, 12, 3, 5, 10, 1]);
   });
+
+  test('힙을 비울 수 있어야 합니다', () => {
+    maxHeap.clear();
+    expect(maxHeap.toArray()).toEqual([]);
+  });
 });

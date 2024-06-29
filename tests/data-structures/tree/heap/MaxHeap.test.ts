@@ -59,4 +59,9 @@ describe('최대 힙', () => {
     expect(maxHeap.contains(10)).toBe(true);
     expect(maxHeap.contains(20)).toBe(false);
   });
+
+  test('주어진 배열로 힙을 생성할 수 있어야 합니다', () => {
+    maxHeap.buildHeap([8, 4, 9, 2, 6, 1, 7]);
+    expect(maxHeap.toArray()).toEqual([9, 6, 8, 2, 4, 1, 7]);
+  });
 });

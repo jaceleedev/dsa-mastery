@@ -67,4 +67,13 @@ export class UndirectedGraph {
 
     return edges;
   }
+
+  /**
+   * 그래프에 특정 정점이 있는지 확인합니다.
+   * @param {string} vertex 확인할 정점
+   * @returns {boolean} 정점이 존재하면 true, 그렇지 않으면 false
+   */
+  containsVertex(vertex) {
+    return Boolean(this.adjacencyList[vertex]);
+  }
 }

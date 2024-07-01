@@ -138,4 +138,19 @@ export class UndirectedGraph {
 
     delete this.adjacencyList[vertex];
   }
+
+  /**
+   * 두 정점 사이의 간선을 제거합니다.
+   * @param {string} vertex1 첫 번째 정점
+   * @param {string} vertex2 두 번째 정점
+   * @returns {void}
+   */
+  removeEdge(vertex1, vertex2) {
+    this.adjacencyList[vertex1] = this.adjacencyList[vertex1].filter(
+      (neighbor) => neighbor !== vertex2
+    );
+    this.adjacencyList[vertex2] = this.adjacencyList[vertex2].filer(
+      (neighbor) => neighbor !== vertex1
+    );
+  }
 }

@@ -172,4 +172,15 @@ export class UndirectedGraph {
   isEmpty() {
     return Object.keys(this.adjacencyList).length === 0;
   }
+
+  /**
+   * 그래프의 크기(정점 수와 간선 수)를 가져옵니다.
+   * @returns {{ vertices: number; edges: number }} 정점 수와 간선 수를 포함한 객체
+   */
+  size() {
+    const vertices = this.getVertices().length;
+    const edges = this.getEdges().length;
+
+    return { vertices, edges };
+  }
 }

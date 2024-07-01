@@ -69,6 +69,15 @@ export class UndirectedGraph {
   }
 
   /**
+   * 특정 정점의 이웃 정점을 가져옵니다.
+   * @param {string} vertex 이웃 정점을 가져올 정점
+   * @returns {string[]} 이웃 정점의 배열
+   */
+  getNeighbors(vertex) {
+    return this.adjacencyList[vertex];
+  }
+
+  /**
    * 그래프에 특정 정점이 있는지 확인합니다.
    * @param {string} vertex 확인할 정점
    * @returns {boolean} 정점이 존재하면 true, 그렇지 않으면 false

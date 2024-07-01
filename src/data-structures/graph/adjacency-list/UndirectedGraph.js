@@ -45,4 +45,26 @@ export class UndirectedGraph {
   getVertices() {
     return Object.keys(this.adjacencyList);
   }
+
+  /**
+   * 그래프에 있는 모든 간선을 반환합니다.
+   * @returns {[string, string][]} 모든 간선의 배열
+   */
+  getEdges() {
+    const edges = [];
+    const seen = new Set();
+
+    for (const vertex in this.adjacencyList) {
+      for (const neighbor of this.adjacencyList[vertex]) {
+        const edge = [vertex, neighbor].sort().toString();
+
+        if (!seen.has(edge)) {
+          edges.push([vertex, neighbor]);
+          seen.add(edge);
+        }
+      }
+    }
+
+    return edges;
+  }
 }

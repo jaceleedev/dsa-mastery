@@ -1,31 +1,28 @@
 {
-  "name": "dsa-mastery",
+  "name": "javascript-dsa",
   "version": "1.0.0",
-  "description": "A TypeScript project to implement and test data structures and algorithms.",
+  "description": "A Javascript project to implement and test data structures and algorithms for coding tests.",
   "scripts": {
-    "build": "tsc",
     "test": "jest"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jaceleedev/dsa-mastery.git"
+    "url": "https://github.com/jaceleedev/javascript-dsa.git"
   },
   "keywords": [
-    "typescript",
+    "javascript",
     "data-structures",
     "algorithms",
     "jest",
-    "testing"
+    "testing",
+    "coding-tests"
   ],
   "author": "jaceleedev <jaceleedev@gmail.com>",
   "bugs": {
-    "url": "https://github.com/jaceleedev/dsa-mastery/issues"
+    "url": "https://github.com/jaceleedev/javascript-dsa/issues"
   },
-  "homepage": "https://github.com/jaceleedev/dsa-mastery",
+  "homepage": "https://github.com/jaceleedev/javascript-dsa",
   "devDependencies": {
-    "typescript": "^5.4.5",
-    "jest": "^29.7.0",
-    "ts-jest": "^29.1.4",
-    "@types/jest": "^29.5.12"
+    "jest": "^29.7.0"
   }
 }

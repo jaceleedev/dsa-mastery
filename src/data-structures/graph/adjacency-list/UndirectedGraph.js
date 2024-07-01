@@ -109,4 +109,13 @@ export class UndirectedGraph {
 
     return null;
   }
+
+  /**
+   * 특정 정점의 차수를 가져옵니다.
+   * @param {string} vertex 차수를 가져올 정점
+   * @returns {number} 정점의 차수
+   */
+  degree(vertex) {
+    return this.adjacencyList(vertex)?.length || 0;
+  }
 }

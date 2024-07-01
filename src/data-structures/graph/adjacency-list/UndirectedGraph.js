@@ -118,4 +118,24 @@ export class UndirectedGraph {
   degree(vertex) {
     return this.adjacencyList(vertex)?.length || 0;
   }
+
+  // 삭제 (Deletion) 관련 메서드
+  // ===========================
+
+  /**
+   * 그래프에서 정점과 해당 정점에 연결된 모든 간선을 제거합니다.
+   * @param {string} vertex 제거할 정점
+   * @returns {void}
+   */
+  removeVertex(vertex) {
+    while (this.adjacencyList[vertex]?.length) {
+      const neighbor = this.adjacencyList[vertex].pop();
+
+      if (neighbor) {
+        this.removeEdge(vertex, neighbor);
+      }
+    }
+
+    delete this.adjacencyList[vertex];
+  }
 }

@@ -153,4 +153,15 @@ export class UndirectedGraph {
       (neighbor) => neighbor !== vertex1
     );
   }
+
+  // 유틸리티 (Utility) 관련 메서드
+  // ============================
+
+  /**
+   * 그래프를 초기화합니다.
+   * @returns {void}
+   */
+  clear() {
+    this.adjacencyList = {};
+  }
 }

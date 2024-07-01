@@ -1,4 +1,4 @@
-export class UndirectedGraph {
+class UndirectedGraph {
   constructor() {
     this.adjacencyList = {};
   }
@@ -198,3 +198,5 @@ export class UndirectedGraph {
     return result;
   }
 }
+
+module.exports = UndirectedGraph;

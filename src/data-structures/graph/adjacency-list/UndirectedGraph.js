@@ -164,4 +164,12 @@ export class UndirectedGraph {
   clear() {
     this.adjacencyList = {};
   }
+
+  /**
+   * 그래프가 비어있는지 확인합니다.
+   * @returns {boolean} 그래프가 비어있으면 true, 그렇지 않으면 false
+   */
+  isEmpty() {
+    return Object.keys(this.adjacencyList).length === 0;
+  }
 }

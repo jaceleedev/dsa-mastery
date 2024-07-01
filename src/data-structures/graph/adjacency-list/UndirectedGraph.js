@@ -76,4 +76,14 @@ export class UndirectedGraph {
   containsVertex(vertex) {
     return Boolean(this.adjacencyList[vertex]);
   }
+
+  /**
+   * 두 정점 사이에 간선이 있는지 확인합니다.
+   * @param {string} vertex1 첫 번째 정점
+   * @param {string} vertex2 두 번째 정점
+   * @returns {boolean} 간선이 존재하면 true, 그렇지 않으면 false
+   */
+  containsEdge(vertex1, vertex2) {
+    return this.adjacencyList[vertex1]?.includes(vertex2);
+  }
 }

@@ -34,4 +34,15 @@ export class UndirectedGraph {
     this.adjacencyList[vertex1].push(vertex2);
     this.adjacencyList[vertex2].push(vertex1);
   }
+
+  // 읽기 (Read) 관련 메서드
+  // =========================
+
+  /**
+   * 그래프에 있는 모든 정점을 반환합니다.
+   * @returns {string[]} 모든 정점의 배열
+   */
+  getVertices() {
+    return Object.keys(this.adjacencyList);
+  }
 }

@@ -183,4 +183,18 @@ export class UndirectedGraph {
 
     return { vertices, edges };
   }
+
+  /**
+   * 그래프를 문자열로 변환합니다.
+   * @returns {string} 그래프의 문자열 표현
+   */
+  toString() {
+    let result = '';
+
+    for (const vertex in this.adjacencyList) {
+      result += `${vertex}: ${this.adjacencyList[vertex].join(', ')}\n`;
+    }
+
+    return result;
+  }
 }

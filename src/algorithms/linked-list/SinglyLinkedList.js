@@ -68,3 +68,24 @@ function removeNthFromEnd(list, n) {
   list.head = dummy.next;
   --this.length;
 }
+
+/**
+ * 리스트에 루프가 있는지 확인합니다.
+ * @param {SinglyLinkedList} list - 루프를 검사할 리스트
+ * @returns {boolean} 루프가 있으면 true, 없으면 false
+ */
+function detectLoop(list) {
+  let slow = this.head;
+  let fast = this.head;
+
+  while (fast !== null && fast.next !== null) {
+    slow = slow.next;
+    fast = fast.next.next;
+
+    if (slow === fast) {
+      return true;
+    }
+  }
+
+  return false;
+}

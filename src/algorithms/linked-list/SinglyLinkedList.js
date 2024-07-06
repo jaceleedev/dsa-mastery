@@ -164,8 +164,8 @@ function deleteNodeWithValue(list, value) {
       return;
     }
 
-    current = current.next;
     previous = current;
+    current = current.next;
   }
 }
 

@@ -89,3 +89,54 @@ function detectLoop(list) {
 
   return false;
 }
+
+/**
+ * 두 정렬된 리스트를 병합합니다.
+ * @param {SinglyLinkedList} list1 - 첫 번째 리스트
+ * @param {SinglyLinkedList} list2 - 두 번째 리스트
+ * @returns {SinglyLinkedList} 병합된 리스트
+ */
+function mergeTwoSortedLists(list1, list2) {
+  const mergedList = new SinglyLinkedList();
+  let current1 = list1.head;
+  let current2 = list2.head;
+  let mergedCurrent = null;
+
+  while (current1 !== null && current2 !== null) {
+    let value;
+
+    if (current1.value < current2.value) {
+      value = current1.value;
+      current1 = current1.next;
+    } else {
+      value = current2.value;
+      current2 = current2.next;
+    }
+
+    if (mergedList.head === null) {
+      mergedList.head = new Node(value);
+      mergedCurrent = mergedList.head;
+    } else {
+      mergedCurrent.next = new Node(value);
+      mergedCurrent = mergedCurrent.next;
+    }
+
+    ++mergedList.length;
+  }
+
+  while (current1 !== null) {
+    mergedCurrent.next = new Node(current1.value);
+    mergedCurrent = mergedCurrent.next;
+    current1 = current1.next;
+    ++mergedList.length;
+  }
+
+  while (current2 !== null) {
+    mergedCurrent.next = new Node(current2.value);
+    mergedCurrent = mergedCurrent.next;
+    current2 = current2.next;
+    ++mergedList.length;
+  }
+
+  return mergedList;
+}

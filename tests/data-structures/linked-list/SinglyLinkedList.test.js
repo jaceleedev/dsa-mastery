@@ -1,4 +1,6 @@
-const SinglyLinkedList = require('../../../src/data-structures/linked-list/SinglyLinkedList');
+const {
+  SinglyLinkedList,
+} = require('../../../src/data-structures/linked-list/SinglyLinkedList');
 
 describe('SinglyLinkedList', () => {
   let list;

@@ -179,7 +179,7 @@ function isPalindrome(list) {
   let fast = list.head;
   const stack = [];
 
-  while (slow !== null && fast !== null) {
+  while (fast !== null && fast.next !== null) {
     stack.push(slow.value);
     slow = slow.next;
     fast = fast.next.next;
@@ -190,7 +190,7 @@ function isPalindrome(list) {
   }
 
   while (slow !== null) {
-    const value = stack.pop().value;
+    const value = stack.pop();
 
     if (value !== slow.value) {
       return false;

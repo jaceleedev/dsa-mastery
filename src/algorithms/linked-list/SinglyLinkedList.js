@@ -75,8 +75,8 @@ function removeNthFromEnd(list, n) {
  * @returns {boolean} 루프가 있으면 true, 없으면 false
  */
 function detectLoop(list) {
-  let slow = this.head;
-  let fast = this.head;
+  let slow = list.head;
+  let fast = list.head;
 
   while (fast !== null && fast.next !== null) {
     slow = slow.next;

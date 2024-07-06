@@ -79,4 +79,14 @@ describe('SinglyLinkedList Algorithms', () => {
     deleteNodeWithValue(list, 2);
     expect(list.toString()).toBe('1 -> 3');
   });
+
+  test('isPalindrome(list): 리스트가 팔린드롬인지 확인해야 합니다', () => {
+    list.append(1);
+    list.append(2);
+    list.append(3);
+    list.append(2);
+    list.append(1);
+    const result = isPalindrome(list);
+    expect(result).toBe(true);
+  });
 });

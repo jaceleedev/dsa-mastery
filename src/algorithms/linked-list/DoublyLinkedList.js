@@ -100,3 +100,37 @@ function detectLoop(list) {
 
   return false;
 }
+
+/**
+ * 두 정렬된 리스트를 병합합니다.
+ * @param {DoublyLinkedList} list1 - 첫 번째 리스트
+ * @param {DoublyLinkedList} list2 - 두 번째 리스트
+ * @returns {DoublyLinkedList} 병합된 리스트
+ */
+function mergeTwoSortedLists(list1, list2) {
+  const mergedList = new DoublyLinkedList();
+  let current1 = list1.head;
+  let current2 = list2.head;
+
+  while (current1 !== null && current2 !== null) {
+    if (current1.value < current2.value) {
+      mergedList.append(current1.value);
+      current1 = current1.next;
+    } else {
+      mergedList.append(current2.value);
+      current2 = current2.next;
+    }
+  }
+
+  while (current1 !== null) {
+    mergedList.append(current1.value);
+    current1 = current1.next;
+  }
+
+  while (current2 !== null) {
+    mergedList.append(current2.value);
+    current2 = current2.next;
+  }
+
+  return mergedList;
+}

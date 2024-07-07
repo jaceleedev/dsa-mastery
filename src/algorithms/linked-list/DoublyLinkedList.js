@@ -166,3 +166,39 @@ function deleteNodeWithValue(list, value) {
     current = current.next;
   }
 }
+
+/**
+ * 리스트가 팔린드롬인지 확인합니다.
+ * @param {DoublyLinkedList} list - 팔린드롬을 확인할 리스트
+ * @returns {boolean} 팔린드롬이면 true, 아니면 false
+ */
+function isPalindrome(list) {
+  let left = list.head;
+  let right = list.tail;
+
+  while (
+    left !== null &&
+    right !== null &&
+    left !== right &&
+    left.prev !== right
+  ) {
+    if (left.value !== right.value) {
+      return false;
+    }
+
+    left = left.next;
+    right = right.prev;
+  }
+
+  return true;
+}
+
+module.exports = {
+  reverseLinkedList,
+  findMiddleNode,
+  removeNthFromEnd,
+  detectLoop,
+  mergeTwoSortedLists,
+  deleteNodeWithValue,
+  isPalindrome,
+};

@@ -1,4 +1,6 @@
-const DoublyLinkedList = require('../../../src/data-structures/linked-list/DoublyLinkedList');
+const {
+  DoublyLinkedList,
+} = require('../../../src/data-structures/linked-list/DoublyLinkedList');
 
 describe('DoublyLinkedList', () => {
   let list;

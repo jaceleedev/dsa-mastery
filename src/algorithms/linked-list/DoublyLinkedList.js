@@ -27,3 +27,20 @@ function reverseLinkedList(list) {
 
   return list;
 }
+
+/**
+ * 리스트의 중간 노드를 반환합니다.
+ * @param {DoublyLinkedList} list - 중간 노드를 찾을 리스트
+ * @returns {Node} 중간 노드
+ */
+function findMiddleNode(list) {
+  let slow = list.head;
+  let fast = list.head;
+
+  while (fast !== null && fast.next !== null) {
+    slow = slow.next;
+    fast = fast.next.next;
+  }
+
+  return slow;
+}

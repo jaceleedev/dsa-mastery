@@ -51,8 +51,8 @@ function findMiddleNode(list) {
 function removeNthFromEnd(list, n) {
   let dummy = new Node(0);
   dummy.next = list.head;
-  let fast = dummy;
   let slow = dummy;
+  let fast = dummy;
 
   for (let i = 0; i <= n; ++i) {
     fast = fast.next;
@@ -66,7 +66,7 @@ function removeNthFromEnd(list, n) {
   slow.next = slow.next.next;
 
   list.head = dummy.next;
-  --this.length;
+  --list.length;
 }
 
 /**

@@ -26,9 +26,9 @@ function reverseLinkedList(list) {
 }
 
 /**
- * 리스트의 중간 노드 값을 반환합니다.
+ * 리스트의 중간 노드를 반환합니다.
  * @param {SinglyLinkedList} list - 중간 노드를 찾을 리스트
- * @returns {Node} 중간 노드 값
+ * @returns {Node} 중간 노드
  */
 function findMiddleNode(list) {
   let slow = list.head;
@@ -39,7 +39,7 @@ function findMiddleNode(list) {
     fast = fast.next.next;
   }
 
-  return slow.value;
+  return slow;
 }
 
 /**

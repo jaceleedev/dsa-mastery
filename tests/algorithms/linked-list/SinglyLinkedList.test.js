@@ -27,14 +27,14 @@ describe('SinglyLinkedList Algorithms', () => {
     expect(reversedList.toString()).toBe('3 -> 2 -> 1');
   });
 
-  test('findMiddleNode(list): 리스트의 중간 노드 값을 반환해야 합니다', () => {
+  test('findMiddleNode(list): 리스트의 중간 노드를 반환해야 합니다', () => {
     list.append(1);
     list.append(2);
     list.append(3);
     list.append(4);
     list.append(5);
-    const middleNodeValue = findMiddleNode(list);
-    expect(middleNodeValue).toBe(3);
+    const middleNode = findMiddleNode(list);
+    expect(middleNode.value).toBe(3);
   });
 
   test('removeNthFromEnd(list, n): 리스트의 끝에서부터 n번째 노드를 제거해야 합니다', () => {

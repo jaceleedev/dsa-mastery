@@ -134,3 +134,35 @@ function mergeTwoSortedLists(list1, list2) {
 
   return mergedList;
 }
+
+/**
+ * 리스트에서 특정 값을 가지는 노드를 삭제합니다.
+ * @param {DoublyLinkedList} list - 값을 가지는 노드를 삭제할 리스트
+ * @param {*} value - 삭제할 값
+ * @returns {void}
+ */
+function deleteNodeWithValue(list, value) {
+  let current = list.head;
+
+  while (current !== null) {
+    if (current.value === value) {
+      if (current.prev !== null) {
+        current.prev.next = current.next;
+      } else {
+        list.head = current.next;
+      }
+
+      if (current.next !== null) {
+        current.next.prev = current.prev;
+      } else {
+        list.tail = current.prev;
+      }
+
+      --list.length;
+
+      return;
+    }
+
+    current = current.next;
+  }
+}

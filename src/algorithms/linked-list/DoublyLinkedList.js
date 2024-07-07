@@ -44,3 +44,38 @@ function findMiddleNode(list) {
 
   return slow;
 }
+
+/**
+ * 리스트의 끝에서부터 n번째 노드를 제거합니다.
+ * @param {DoublyLinkedList} list - 노드를 제거할 리스트
+ * @param {number} n - 끝에서부터의 인덱스
+ * @returns {void}
+ */
+function removeNthFromEnd(list, n) {
+  let dummy = new Node(0);
+  dummy.next = list.head;
+  list.head.prev = dummy;
+  let slow = dummy;
+  let fast = dummy;
+
+  for (let i = 0; i <= n; ++i) {
+    fast = fast.next;
+  }
+
+  while (fast !== null) {
+    slow = slow.next;
+    fast = fast.next;
+  }
+
+  slow.next = slow.next.next;
+
+  if (slow.next !== null) {
+    slow.next.prev = slow;
+  } else {
+    list.tail = slow;
+  }
+
+  list.head = dummy.next;
+  list.head.prev = null;
+  --list.length;
+}

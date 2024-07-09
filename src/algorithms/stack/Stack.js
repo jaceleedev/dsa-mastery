@@ -77,3 +77,30 @@ function stackToQueue(stack1, stack2) {
     },
   };
 }
+
+/**
+ * 괄호의 균형을 검사합니다.
+ * @param {Stack} stack - 사용할 스택
+ * @param {string} str - 검사할 문자열
+ * @returns {boolean} 균형이 맞으면 true, 그렇지 않으면 false
+ */
+function balancedParentheses(stack, str) {
+  const pairs = {
+    '(': ')',
+    '{': '}',
+    '[': ']',
+  };
+  const values = new Set(Object.values(pairs));
+
+  for (const ch of str) {
+    if (pairs[ch]) {
+      stack.push(ch);
+    } else if (values.has(ch)) {
+      if (stack.isEmpty() || pairs[stack.pop()] !== ch) {
+        return false;
+      }
+    }
+  }
+
+  return stack.isEmpty();
+}

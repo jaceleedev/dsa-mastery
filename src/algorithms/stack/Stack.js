@@ -34,3 +34,19 @@ function sortStack(stack) {
 
   return sortedStack;
 }
+
+/**
+ * 현재 스택을 복제하여 새로운 스택을 반환합니다.
+ * @param {Stack} stack - 복제할 스택
+ * @returns {Stack} 복제된 스택
+ */
+function duplicateStack(stack) {
+  const duplicatedStack = new Stack();
+  const array = stack.toArray();
+
+  for (let i = array.length - 1; i >= 0; --i) {
+    duplicateStack.push(array[i]);
+  }
+
+  return duplicatedStack;
+}

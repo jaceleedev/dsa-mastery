@@ -58,4 +58,17 @@ describe('DoublyLinkedList Algorithms', () => {
     const hasLoop = detectLoop(list);
     expect(hasLoop).toBe(true);
   });
+
+  test('mergeTwoSortedLists(list1, list2): 두 정렬된 리스트를 병합해야 합니다', () => {
+    const list1 = new DoublyLinkedList();
+    list1.append(1);
+    list1.append(3);
+    list1.append(5);
+    const list2 = new DoublyLinkedList();
+    list2.append(2);
+    list2.append(4);
+    list2.append(6);
+    const mergedList = mergeTwoSortedLists(list1, list2);
+    expect(mergedList.toString()).toBe('1 <-> 2 <-> 3 <-> 4 <-> 5 <-> 6');
+  });
 });

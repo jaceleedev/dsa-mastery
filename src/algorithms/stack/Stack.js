@@ -50,3 +50,30 @@ function duplicateStack(stack) {
 
   return duplicatedStack;
 }
+
+/**
+ * 두 개의 스택을 사용하여 큐 자료구조를 구현합니다.
+ * @param {Stack} stack1 - 사용할 스택
+ * @param {Stack} stack2 - 사용할 스택
+ * @returns {Object} 큐의 enqueue와 dequeue 기능
+ */
+function stackToQueue(stack1, stack2) {
+  return {
+    enqueue(value) {
+      stack1.push(value);
+    },
+    dequeue() {
+      if (stack2.isEmpty()) {
+        while (!stack1.isEmpty()) {
+          stack2.push(stack1.pop());
+        }
+      }
+
+      if (stack2.isEmpty()) {
+        throw new Error('큐가 비어있습니다.');
+      }
+
+      return stack2.pop();
+    },
+  };
+}

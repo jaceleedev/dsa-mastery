@@ -71,4 +71,12 @@ describe('DoublyLinkedList Algorithms', () => {
     const mergedList = mergeTwoSortedLists(list1, list2);
     expect(mergedList.toString()).toBe('1 <-> 2 <-> 3 <-> 4 <-> 5 <-> 6');
   });
+
+  test('deleteNodeWithValue(list, value): 리스트에서 특정 값을 가지는 노드를 삭제해야 합니다', () => {
+    list.append(1);
+    list.append(2);
+    list.append(3);
+    deleteNodeWithValue(list, 2);
+    expect(list.toString()).toBe('1 <-> 3');
+  });
 });

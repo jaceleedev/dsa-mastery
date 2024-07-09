@@ -14,3 +14,23 @@ function reverseStack(stack) {
 
   return reversedStack;
 }
+
+/**
+ * 스택의 요소들을 오름차순으로 정렬합니다.
+ * @param {Stack} stack - 정렬할 스택
+ * @returns {Stack} 정렬된 스택
+ */
+function sortStack(stack) {
+  const sortedStack = new Stack();
+
+  while (!stack.isEmpty()) {
+    const temp = stack.pop();
+
+    while (!sortedStack.isEmpty() && sortedStack.peek() > temp) {
+      stack.push(sortedStack.pop());
+    }
+    sortedStack.push(temp);
+  }
+
+  return sortedStack;
+}

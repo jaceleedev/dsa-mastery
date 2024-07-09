@@ -36,4 +36,14 @@ describe('DoublyLinkedList Algorithms', () => {
     const middleNode = findMiddleNode(list);
     expect(middleNode.value).toBe(3);
   });
+
+  test('removeNthFromEnd(list, n): 리스트의 끝에서부터 n번째 노드를 제거해야 합니다', () => {
+    list.append(1);
+    list.append(2);
+    list.append(3);
+    list.append(4);
+    list.append(5);
+    removeNthFromEnd(list, 2);
+    expect(list.toString()).toBe('1 <-> 2 <-> 3 <-> 5');
+  });
 });

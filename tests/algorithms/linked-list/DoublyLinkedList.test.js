@@ -46,4 +46,16 @@ describe('DoublyLinkedList Algorithms', () => {
     removeNthFromEnd(list, 2);
     expect(list.toString()).toBe('1 <-> 2 <-> 3 <-> 5');
   });
+
+  test('detectLoop(list): 리스트에 루프가 있는지 확인해야 합니다', () => {
+    const node1 = new Node(1);
+    const node2 = new Node(2);
+    const node3 = new Node(3);
+    node1.next = node2;
+    node2.next = node3;
+    node3.next = node1;
+    list.head = node1;
+    const hasLoop = detectLoop(list);
+    expect(hasLoop).toBe(true);
+  });
 });

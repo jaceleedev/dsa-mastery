@@ -104,3 +104,44 @@ function balancedParentheses(stack, str) {
 
   return stack.isEmpty();
 }
+
+/**
+ * 중위 표기법 수식을 후위 표기법으로 변환합니다.
+ * @param {Stack} stack - 사용할 스택
+ * @param {string} exp - 중위 표기법 수식
+ * @returns {string} 후위 표기법 수식
+ */
+function infixToPostfix(stack, exp) {
+  let postfix = '';
+  const precedence = {
+    '+': 1,
+    '-': 1,
+    '*': 2,
+    '/': 2,
+    '^': 3,
+  };
+
+  for (const ch of exp) {
+    if (/[a-z0-9]/.test(ch)) {
+      postfix += ch;
+    } else if (ch === '(') {
+      stack.push(ch);
+    } else if (ch === ')') {
+      while (!stack.isEmpty() && stack.peek() !== '(') {
+        postfix += stack.pop();
+      }
+      stack.pop();
+    } else {
+      while (!stack.isEmpty() && precedence[ch] <= precedence[stack.peek()]) {
+        postfix += stack.pop();
+      }
+      stack.push(ch);
+    }
+  }
+
+  while (!stack.isEmpty()) {
+    postfix += stack.pop();
+  }
+
+  return postfix;
+}

@@ -145,3 +145,40 @@ function infixToPostfix(stack, exp) {
 
   return postfix;
 }
+
+/**
+ * 후위 표기법 수식을 계산합니다.
+ * @param {Stack} stack - 스택 인스턴스
+ * @param {string} exp - 후위 표기법 수식
+ * @returns {number} 계산 결과
+ */
+function evaluatePostfix(stack, exp) {
+  for (const ch of exp) {
+    if (/\d/.test(ch)) {
+      stack.push(Number(ch));
+    } else {
+      const b = stack.pop();
+      const a = stack.pop();
+
+      switch (ch) {
+        case '+':
+          stack.push(a + b);
+          break;
+        case '-':
+          stack.push(a - b);
+          break;
+        case '*':
+          stack.push(a * b);
+          break;
+        case '/':
+          stack.push(a / b);
+          break;
+        case '^':
+          stack.push(Math.pow(a, b));
+          break;
+      }
+    }
+  }
+
+  return stack.pop();
+}

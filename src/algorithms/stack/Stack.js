@@ -148,7 +148,7 @@ function infixToPostfix(stack, exp) {
 
 /**
  * 후위 표기법 수식을 계산합니다.
- * @param {Stack} stack - 스택 인스턴스
+ * @param {Stack} stack - 사용할 스택
  * @param {string} exp - 후위 표기법 수식
  * @returns {number} 계산 결과
  */
@@ -181,4 +181,37 @@ function evaluatePostfix(stack, exp) {
   }
 
   return stack.pop();
+}
+
+/**
+ * 히스토그램에서 가장 큰 직사각형의 면적을 찾습니다.
+ * @param {Stack} stack - 사용할 스택
+ * @param {number[]} heights - 히스토그램 높이 배열
+ * @returns {number} 가장 큰 직사각형의 면적
+ */
+function largestRectangleInHistogram(stack, heights) {
+  let maxArea = 0;
+  let index = 0;
+
+  while (index < heights.length) {
+    if (stack.isEmpty() || heights[stack.peek()] <= heights[index]) {
+      stack.push(index);
+      ++index;
+    } else {
+      const top = stack.pop();
+      const area =
+        heights[top] * (stack.isEmpty() ? index : index - stack.peek() - 1);
+
+      maxArea = Math.max(maxArea, area);
+    }
+  }
+
+  while (!stack.isEmpty()) {
+    const top = stack.pop();
+    const area =
+      heights[top] * (stack.isEmpty() ? index : index - stack.peek() - 1);
+    maxArea = Math.max(maxArea, area);
+  }
+
+  return maxArea;
 }

@@ -215,3 +215,22 @@ function largestRectangleInHistogram(stack, heights) {
 
   return maxArea;
 }
+
+/**
+ * 배열에서 각 요소에 대해 다음으로 큰 요소를 찾습니다.
+ * @param {Stack} stack - 사용할 스택
+ * @param {number[]} arr - 입력 배열
+ * @returns {number[]} 다음으로 큰 요소 배열
+ */
+function nextGreaterElement(stack, arr) {
+  const result = new Array(arr.length).fill(-1);
+
+  for (let i = 0; i < arr.length; ++i) {
+    while (!stack.isEmpty() && arr[stack.peek()] < arr[i]) {
+      result[stack.pop()] = arr[i];
+    }
+    stack.push(i);
+  }
+
+  return result;
+}

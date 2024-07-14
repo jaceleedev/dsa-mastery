@@ -158,6 +158,31 @@ class UndirectedGraph {
   // ============================
 
   /**
+   * 깊이 우선 탐색(DFS)을 재귀적으로 수행합니다.
+   * @param {string} start 시작 정점
+   * @returns {string[]} 방문한 정점의 배열
+   */
+  depthFirstSearchRecursive(start) {
+    const result = [];
+    const visited = {};
+
+    const dfs = (vertex) => {
+      visited[vertex] = true;
+      result.push(vertex);
+
+      this.adjacencyList[vertex].forEach((neighbor) => {
+        if (!visited[neighbor]) {
+          dfs(neighbor);
+        }
+      });
+    };
+
+    dfs(start);
+
+    return result;
+  }
+
+  /**
    * 그래프를 초기화합니다.
    * @returns {void}
    */

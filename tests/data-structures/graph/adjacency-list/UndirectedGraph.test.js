@@ -32,4 +32,13 @@ describe('UndirectedGraph (adjacencyList)', () => {
     graph.addVertex('B');
     expect(graph.getVertices()).toEqual(['A', 'B']);
   });
+
+  test('getEdges(): 그래프에 있는 모든 간선을 반환해야 합니다', () => {
+    graph.addEdge('A', 'B');
+    graph.addEdge('B', 'C');
+    expect(graph.getEdges()).toEqual([
+      ['A', 'B'],
+      ['B', 'C'],
+    ]);
+  });
 });

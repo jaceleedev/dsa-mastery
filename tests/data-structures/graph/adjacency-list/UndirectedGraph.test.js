@@ -23,4 +23,13 @@ describe('UndirectedGraph (adjacencyList)', () => {
     expect(graph.containsEdge('A', 'B')).toBe(true);
     expect(graph.containsEdge('B', 'A')).toBe(true);
   });
+
+  // 읽기 (Read) 관련 메서드
+  // =========================
+
+  test('getVertices(): 그래프에 있는 모든 정점을 반환해야 합니다', () => {
+    graph.addVertex('A');
+    graph.addVertex('B');
+    expect(graph.getVertices()).toEqual(['A', 'B']);
+  });
 });

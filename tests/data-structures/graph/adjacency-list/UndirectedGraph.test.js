@@ -17,4 +17,10 @@ describe('UndirectedGraph (adjacencyList)', () => {
     expect(graph.containsVertex('B')).toBe(true);
     expect(graph.getVertices()).toEqual(['A', 'B']);
   });
+
+  test('addEdge(vertex1, vertex2): 두 정점 사이에 간선을 추가해야 합니다', () => {
+    graph.addEdge('A', 'B');
+    expect(graph.containsEdge('A', 'B')).toBe(true);
+    expect(graph.containsEdge('B', 'A')).toBe(true);
+  });
 });

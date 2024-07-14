@@ -308,6 +308,34 @@ class UndirectedGraph {
   }
 
   /**
+   * 그래프가 연결 그래프인지 확인합니다.
+   * @returns {boolean} 그래프가 연결 그래프이면 true, 그렇지 않으면 false
+   */
+  isConnected() {
+    const visited = new Set();
+
+    const dfs = (vertex) => {
+      visited.add(vertex);
+
+      this.adjacencyList[vertex].forEach((neighbor) => {
+        if (!visited.has(neighbor)) {
+          dfs(neighbor);
+        }
+      });
+    };
+
+    const vertices = this.getVertices();
+
+    if (vertices.length === 0) {
+      return true;
+    }
+
+    dfs(vertices[0]);
+
+    return visited.size === vertices.length;
+  }
+
+  /**
    * 그래프를 초기화합니다.
    * @returns {void}
    */

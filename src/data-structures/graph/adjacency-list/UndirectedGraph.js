@@ -209,6 +209,32 @@ class UndirectedGraph {
   }
 
   /**
+   * 너비 우선 탐색(BFS)을 비재귀적으로 수행합니다.
+   * @param {string} start 시작 정점
+   * @returns {string[]} 방문한 정점의 배열
+   */
+  breadthFirstSearchIterative(start) {
+    const result = [];
+    const visited = {};
+    const queue = [start];
+    visited[start] = true;
+
+    while (queue.length) {
+      const vertex = queue.shift();
+      result.push(vertex);
+
+      this.adjacencyList[vertex].forEach((neighbor) => {
+        if (!visited[neighbor]) {
+          visited[neighbor] = true;
+          queue.push(neighbor);
+        }
+      });
+    }
+
+    return result;
+  }
+
+  /**
    * 그래프를 초기화합니다.
    * @returns {void}
    */

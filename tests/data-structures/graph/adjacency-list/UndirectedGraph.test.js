@@ -47,4 +47,10 @@ describe('UndirectedGraph (adjacencyList)', () => {
     graph.addEdge('A', 'C');
     expect(graph.getNeighbors('A')).toEqual(['B', 'C']);
   });
+
+  test('containsVertex(vertex): 그래프에 특정 정점이 있는지 확인해야 합니다', () => {
+    graph.addVertex('A');
+    expect(graph.containsVertex('A')).toBe(true);
+    expect(graph.containsVertex('B')).toBe(false);
+  });
 });

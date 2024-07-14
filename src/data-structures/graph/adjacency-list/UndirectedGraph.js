@@ -269,6 +269,45 @@ class UndirectedGraph {
   }
 
   /**
+   * 두 정점 사이의 최단 경로를 찾습니다.
+   * @param {string} start 시작 정점
+   * @param {string} end 끝 정점
+   * @returns {string[] | null} 최단 경로에 있는 정점의 배열, 경로가 없으면 null
+   */
+  shortestPath(start, end) {
+    const visited = {};
+    const queue = [start];
+    visited[start] = true;
+    const previous = {};
+
+    while (queue.length) {
+      const vertex = queue.shift();
+
+      if (vertex === end) {
+        const path = [];
+        let current = end;
+
+        while (current) {
+          path.unshift(current);
+          current = previous[current];
+        }
+
+        return path;
+      }
+
+      this.adjacencyList[vertex].forEach((neighbor) => {
+        if (!visited[neighbor]) {
+          visited[neighbor] = true;
+          previous[neighbor] = vertex;
+          queue.push(neighbor);
+        }
+      });
+    }
+
+    return null;
+  }
+
+  /**
    * 그래프를 초기화합니다.
    * @returns {void}
    */

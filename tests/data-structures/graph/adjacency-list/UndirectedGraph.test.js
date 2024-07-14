@@ -41,4 +41,10 @@ describe('UndirectedGraph (adjacencyList)', () => {
       ['B', 'C'],
     ]);
   });
+
+  test('getNeighbors(vertex): 특정 정점의 이웃 정점을 가져와야 합니다', () => {
+    graph.addEdge('A', 'B');
+    graph.addEdge('A', 'C');
+    expect(graph.getNeighbors('A')).toEqual(['B', 'C']);
+  });
 });

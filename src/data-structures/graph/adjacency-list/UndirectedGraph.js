@@ -93,7 +93,7 @@ class UndirectedGraph {
    * @returns {boolean} 간선이 존재하면 true, 그렇지 않으면 false
    */
   containsEdge(vertex1, vertex2) {
-    return this.adjacencyList[vertex1]?.includes(vertex2);
+    return this.adjacencyList && this.adjacencyList[vertex1].includes(vertex2);
   }
 
   /**
@@ -116,7 +116,7 @@ class UndirectedGraph {
    * @returns {number} 정점의 차수
    */
   degree(vertex) {
-    return this.adjacencyList(vertex)?.length || 0;
+    return this.adjacencyList[vertex]?.length || 0;
   }
 
   // 삭제 (Deletion) 관련 메서드
@@ -149,7 +149,7 @@ class UndirectedGraph {
     this.adjacencyList[vertex1] = this.adjacencyList[vertex1].filter(
       (neighbor) => neighbor !== vertex2
     );
-    this.adjacencyList[vertex2] = this.adjacencyList[vertex2].filer(
+    this.adjacencyList[vertex2] = this.adjacencyList[vertex2].filter(
       (neighbor) => neighbor !== vertex1
     );
   }

@@ -235,6 +235,40 @@ class UndirectedGraph {
   }
 
   /**
+   * 그래프에 사이클이 있는지 확인합니다.
+   * @returns {boolean} 사이클이 있으면 true, 그렇지 않으면 false
+   */
+  hasCycle() {
+    const visited = new Set();
+
+    const dfs = (vertex, parent) => {
+      visited.add(vertex);
+
+      for (const neighbor of this.adjacencyList[vertex]) {
+        if (!visited.has(neighbor)) {
+          if (dfs(neighbor, vertex)) {
+            return true;
+          }
+        } else if (neighbor !== parent) {
+          return true;
+        }
+      }
+
+      return false;
+    };
+
+    for (const vertex in this.adjacencyList) {
+      if (!visited.has(vertex)) {
+        if (dfs(vertex, null)) {
+          return true;
+        }
+      }
+    }
+
+    return false;
+  }
+
+  /**
    * 그래프를 초기화합니다.
    * @returns {void}
    */

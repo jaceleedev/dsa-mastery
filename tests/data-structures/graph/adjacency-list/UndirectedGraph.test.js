@@ -1,0 +1,20 @@
+const UndirectedGraph = require('../../../../src/data-structures/graph/adjacency-list/UndirectedGraph');
+
+describe('UndirectedGraph (adjacencyList)', () => {
+  let graph;
+
+  beforeEach(() => {
+    graph = new UndirectedGraph();
+  });
+
+  // 생성 (Creation) 관련 메서드
+  // =========================
+
+  test('addVertex(vertex): 그래프에 새로운 정점을 추가해야 합니다', () => {
+    graph.addVertex('A');
+    graph.addVertex('B');
+    expect(graph.containsVertex('A')).toBe(true);
+    expect(graph.containsVertex('B')).toBe(true);
+    expect(graph.getVertices()).toEqual(['A', 'B']);
+  });
+});
